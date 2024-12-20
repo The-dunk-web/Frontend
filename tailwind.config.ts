@@ -9,6 +9,11 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-pattern':
+          "linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/hero-1.jpg')",
+      },
+
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
