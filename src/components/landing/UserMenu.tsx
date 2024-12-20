@@ -16,7 +16,7 @@ export default function UserMenu() {
       <DropdownMenuTrigger>
         <Avatar>
           <AvatarImage
-            src="https://github.com/shadcn.png"
+            src="/skull.jpg"
             alt="@shadcn"
           />
           <AvatarFallback>CN</AvatarFallback>
