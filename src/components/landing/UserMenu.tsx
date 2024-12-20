@@ -39,6 +39,12 @@ export default function UserMenu() {
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
           <Link href="/red-rome">Red Rome</Link>
         </DropdownMenuItem>
+        <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
+          <Link href="/red-rome">Services</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
+          <Link href="/red-rome">Articles</Link>
+        </DropdownMenuItem>
 
         <DropdownMenuItem className="focus:bg-stone-950 focus:text-stone-100">
           <Button
