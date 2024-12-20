@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import UserMenu from '@/components/landing/UserMenu';
 import { Button } from '@/components/ui/button';
+import Logo from '../global/Logo';
 
 export default function Navbar() {
   const user = true;
@@ -9,9 +10,8 @@ export default function Navbar() {
     <div>
       <div className="fixed left-0 right-0 top-0 z-10 border-b-2 bg-stone-950/80">
         <div className="container mx-auto flex items-center justify-between p-4">
-          <div className="logo">
-            <Link href="/">The Dunk Web</Link>
-          </div>
+          <Logo />
+
           <nav className="hidden text-sm font-medium md:block">
             <ul className="flex items-center gap-6">
               <li>
