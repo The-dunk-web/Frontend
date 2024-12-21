@@ -12,6 +12,8 @@ export default {
       backgroundImage: {
         'hero-pattern':
           "linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/hero-1.jpg')",
+        'auth-pattern':
+          "linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/auth-bg.jpg')",
       },
 
       colors: {
