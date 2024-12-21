@@ -1,5 +1,6 @@
+import ForgotPasswordView from '@/components/views/forgot-password-view';
 import React from 'react';
 
-export default function ForgotPasswordForm() {
-  return <div>ForgotPasswordForm</div>;
+export default function page() {
+  return <ForgotPasswordView />;
 }
