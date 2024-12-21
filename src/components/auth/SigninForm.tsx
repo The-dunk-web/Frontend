@@ -2,19 +2,11 @@ import React from 'react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
-export default function SignupForm() {
+export default function SigninForm() {
   return (
     <form>
-      <div className="mb-5 grid items-center gap-1.5 tracking-wider">
-        <Label htmlFor="username">Username</Label>
-        <Input
-          className="h-12 rounded-none border-2"
-          type="text"
-          id="username"
-          placeholder="Your Username"
-        />
-      </div>
       <div className="mb-5 grid items-center gap-1.5 tracking-wider">
         <Label htmlFor="email">Email</Label>
         <Input
@@ -25,7 +17,15 @@ export default function SignupForm() {
         />
       </div>
       <div className="mb-10 grid items-center gap-1.5 tracking-wider">
-        <Label htmlFor="password">Password</Label>
+        <div className="flex items-center justify-between">
+          <Label htmlFor="password">Password</Label>
+          <Link
+            href="/forgot-password"
+            className="text-sm hover:text-red-600"
+          >
+            Forgot password?
+          </Link>
+        </div>
         <Input
           className="h-12 rounded-none border-2 autofill:bg-transparent"
           type="password"
@@ -34,7 +34,7 @@ export default function SignupForm() {
         />
       </div>
       <Button className="h-12 w-full rounded-none border-2 bg-transparent font-bold text-stone-100 hover:bg-stone-100 hover:text-stone-950">
-        Join now
+        Reclaim
       </Button>
     </form>
   );
