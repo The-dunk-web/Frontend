@@ -17,7 +17,7 @@ export default function SignupForm() {
     resolver: zodResolver(SignupSchema),
   });
 
-  async function onSubmit(data: FieldValues) {
+  function onSubmit(data: FieldValues) {
     console.log(data);
     reset();
   }
