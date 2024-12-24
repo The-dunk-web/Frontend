@@ -35,7 +35,7 @@ export default function Navbar() {
                   className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                   href="/red-rome"
                 >
-                  Red Rome
+                  Red Rooms
                 </Link>
               </li>
               <li>
