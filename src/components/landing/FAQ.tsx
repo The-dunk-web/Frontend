@@ -3,7 +3,7 @@ import FaqCard from './FaqCard';
 
 export default function FAQ() {
   return (
-    <section className="py-14">
+    <section className="mb-20 py-14">
       <div className="container mx-auto">
         <header className="mb-12 text-center">
           <p
