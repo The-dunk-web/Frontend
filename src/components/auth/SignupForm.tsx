@@ -5,7 +5,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SignupSchema } from '@/types/schema/signup-form-schema';
+import { SignupFormData, SignupSchema } from '@/types/schema/signup-form-schema';
 
 export default function SignupForm() {
   const {
@@ -13,7 +13,7 @@ export default function SignupForm() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm({
+  } = useForm<SignupFormData>({
     resolver: zodResolver(SignupSchema),
   });
 
