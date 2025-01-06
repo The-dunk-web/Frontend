@@ -37,6 +37,20 @@ export const login = async (data: LoginData) => {
   return response.json();
 };
 
+export const logout = async () => {
+  const response = await fetch(`${API_URL}/api/auth/logout`, {
+    method: 'POST',
+    credentials: 'include',
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || 'Logout failed');
+  }
+
+  return response.json();
+};
+
 export const forgotPassword = async (data: ForgotPasswordData) => {
   const response = await fetch(`${API_URL}/api/auth/forgot-password`, {
     method: 'POST',
