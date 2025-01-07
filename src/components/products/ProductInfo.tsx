@@ -2,10 +2,15 @@ import React from 'react';
 import { ProductImageSlider } from './ProductImagesSlider';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import Link from 'next/link';
+import { press_start_2p } from '@/constants/fonts';
 
-export default function ProductInfo() {
+export default function ProductInfo({ productId }: { productId: string }) {
   return (
     <div className="mx-auto w-full max-w-xl px-8">
+      <h1 className={`${press_start_2p.className} mb-5 text-center text-red-500`}>
+        Product Details
+      </h1>
       <ProductImageSlider />
       <div className="flex flex-col gap-5 p-10">
         <p>
@@ -21,21 +26,14 @@ export default function ProductInfo() {
           <span className="font-semibold text-red-600">Product Price: </span> 100$
         </p>
 
-        <p className="flex items-center gap-4">
-          <span className="font-semibold text-red-600">Quantity: </span>{' '}
-          <Input
-            type="number"
-            className="w-auto rounded-none border-2"
-            defaultValue="1"
-            min="1"
-            max="900"
-          />
-        </p>
-        <p>
-          <span className="font-semibold text-red-600">Total Price: </span> 100$
-        </p>
-
-        <Button variant="ourButton">Create order now</Button>
+        <Link href={`/products/${productId}/order`}>
+          <Button
+            variant="ourButton"
+            className="w-full"
+          >
+            order now
+          </Button>
+        </Link>
       </div>
     </div>
   );
