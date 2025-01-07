@@ -18,8 +18,13 @@ export default {
           'linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/footer.jpg)',
         'features-pattern':
           'linear-gradient(to right, rgba(69, 10, 10, 0.5), rgba(69, 10, 10, 0.5))',
+
         'sale-pattern':
           'linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/sale.jpg)',
+
+        'signup-message-pattern':
+          'linear-gradient(to right, rgba(69, 10, 10, 0.5), rgba(69, 10, 10, 0.5)), url(/door.jpg)',
+
       },
       colors: {
         background: 'hsl(var(--background))',

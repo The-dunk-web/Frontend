@@ -2,26 +2,27 @@ import { z } from 'zod';
 
 export const SignupSchema = z
   .object({
-    username: z
+    firstName: z.string().min(1, 'First name is required').trim(),
+    lastName: z.string().min(1, 'Last name is required').trim(),
+    email: z.string().email().min(1, 'Email is required').trim().toLowerCase(),
+    phone: z
       .string()
-      .min(2, 'Username must be at least 2 characters')
-      .max(25, 'Username must be at most 25 characters')
+      .min(1, 'Phone number is required')
+      .regex(/^\+20\d{10}$/, 'Phone number must be in this format +20')
       .trim(),
-    email: z.string().email().max(50, 'Email must be at most 50 characters').trim().toLowerCase(),
     password: z
       .string()
-      .min(1, { message: 'Not be empty' })
-      .min(5, { message: 'Be at least 5 characters long' })
-      .regex(/[a-zA-Z]/, { message: 'Contain at least one letter.' })
-      .regex(/[0-9]/, { message: 'Contain at least one number.' })
-      .regex(/[^a-zA-Z0-9]/, {
-        message: 'Contain at least one special character.',
-      })
+      .min(1, 'Password is required')
+      .min(8, 'Password must be at least 8 characters')
+      .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .regex(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .regex(/[0-9]/, 'Password must contain at least one number')
+      .regex(/[^a-zA-Z0-9]/, 'Password must contain at least one special character')
       .trim(),
     confirmPassword: z.string().trim(),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Password must match',
+    message: 'Passwords do not match',
     path: ['confirmPassword'],
   });
 
