@@ -58,30 +58,34 @@ export default function SignupForm() {
         onSubmit={handleSubmit(onSubmit)}
         encType="multipart/form-data"
       >
-        <div className="mb-5 grid items-center gap-1.5 tracking-wider">
-          <Label htmlFor="firstName">First Name</Label>
-          <Input
-            className="h-12 rounded-none border-2"
-            type="text"
-            id="firstName"
-            placeholder="Your First Name"
-            {...register('firstName')}
-          />
-          {errors?.firstName && (
-            <p className="text-red-600">{errors.firstName.message as string}</p>
-          )}
-        </div>
+        <div className="flex items-center gap-5">
+          <div className="mb-5 grid items-center gap-1.5 tracking-wider">
+            <Label htmlFor="firstName">First Name</Label>
+            <Input
+              className="h-12 rounded-none border-2"
+              type="text"
+              id="firstName"
+              placeholder="Your First Name"
+              {...register('firstName')}
+            />
+            {errors?.firstName && (
+              <p className="text-red-600">{errors.firstName.message as string}</p>
+            )}
+          </div>
 
-        <div className="mb-5 grid items-center gap-1.5 tracking-wider">
-          <Label htmlFor="lastName">Last Name</Label>
-          <Input
-            className="h-12 rounded-none border-2"
-            type="text"
-            id="lastName"
-            placeholder="Your Last Name"
-            {...register('lastName')}
-          />
-          {errors?.lastName && <p className="text-red-600">{errors.lastName.message as string}</p>}
+          <div className="mb-5 grid items-center gap-1.5 tracking-wider">
+            <Label htmlFor="lastName">Last Name</Label>
+            <Input
+              className="h-12 rounded-none border-2"
+              type="text"
+              id="lastName"
+              placeholder="Your Last Name"
+              {...register('lastName')}
+            />
+            {errors?.lastName && (
+              <p className="text-red-600">{errors.lastName.message as string}</p>
+            )}
+          </div>
         </div>
 
         <div className="mb-5 grid items-center gap-1.5 tracking-wider">
@@ -120,31 +124,6 @@ export default function SignupForm() {
           {errors?.password && <p className="text-red-600">{errors.password.message as string}</p>}
         </div>
 
-        <div className="mb-10 grid items-center gap-1.5 tracking-wider">
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
-          <Input
-            className="h-12 rounded-none border-2 autofill:bg-transparent"
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm Password"
-            {...register('confirmPassword')}
-          />
-          {errors?.confirmPassword && (
-            <p className="text-red-600">{errors.confirmPassword.message as string}</p>
-          )}
-        </div>
-
-        <div className="mb-5 grid items-center gap-1.5 tracking-wider">
-          <Label htmlFor="profilePicture">Profile Picture</Label>
-          <Input
-            className="h-12 rounded-none border-2 autofill:bg-transparent"
-            type="file"
-            id="profilePicture"
-            name="profile"
-            onChange={(e) => setProfilePicture(e.target.files?.[0] || null)}
-          />
-        </div>
-
         {errorMessage && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
             <div className="rounded-lg border-2 border-red-700 bg-red-900 p-6 text-center text-red-300">
@@ -165,7 +144,7 @@ export default function SignupForm() {
       {showSuccessModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
           <div className="flex h-full w-full items-center justify-center bg-cover bg-center">
-            <div className="flicker rounded-lg border-2 border-stone-700 bg-black bg-opacity-70 bg-signup-message-pattern p-8 text-center">
+            <div className="flicker bg-signup-message-pattern rounded-lg border-2 border-stone-700 bg-black bg-opacity-70 p-8 text-center">
               <p className="glitch mb-6 text-lg text-stone-300">
                 You are now a member of The Dunk Web. The gateway to the void awaits. Will you
                 cross?

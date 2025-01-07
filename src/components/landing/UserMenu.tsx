@@ -19,7 +19,7 @@ export default function UserMenu() {
         <Avatar>
           <AvatarImage
             src={user?.profile}
-            alt="{user?.firstName}"
+            alt={`${user?.firstName}`}
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
@@ -28,24 +28,31 @@ export default function UserMenu() {
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100">
           <Link href="/">My Profile</Link>
         </DropdownMenuItem>
+
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100">
-          <Link href="/">My Cart</Link>
+          <Link href="/">My Orders</Link>
         </DropdownMenuItem>
+
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
           <Link href="/">Home</Link>
         </DropdownMenuItem>
+
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
           <Link href="/products">Products</Link>
         </DropdownMenuItem>
+
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
-          <Link href="/red-rome">Red Rome</Link>
+          <Link href="/red-rome">Red Room</Link>
         </DropdownMenuItem>
+
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
           <Link href="/red-rome">Services</Link>
         </DropdownMenuItem>
+
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
           <Link href="/red-rome">Articles</Link>
         </DropdownMenuItem>
+
         {isAuthenticated ? (
           <DropdownMenuItem className="focus:bg-stone-950 focus:text-stone-100">
             <LogoutButton />

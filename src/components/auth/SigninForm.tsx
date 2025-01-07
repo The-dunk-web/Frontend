@@ -37,7 +37,7 @@ export default function SigninForm() {
         router.push('/');
       }, 2000);
     } catch (error) {
-      setErrorMessage('Something went wrong. try again.');
+      setErrorMessage('Invalid Email or Password');
       setTimeout(() => {
         setErrorMessage(null);
       }, 2000);
@@ -102,7 +102,7 @@ export default function SigninForm() {
               alt="Danger Smile"
               width={100}
               height={100}
-              className="mx-auto"
+              className="mx-auto w-auto"
             />
             <h2 className="mt-4 text-2xl font-bold text-red-600">hahahaha thanks idiot</h2>
             <p className="mt-2 text-stone-100">Your data is public now!</p>
