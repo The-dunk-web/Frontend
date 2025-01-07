@@ -1,4 +1,3 @@
-// src/components/providers/AuthProvider.tsx
 'use client';
 import { useEffect } from 'react';
 import useAuthStore from '@/middleware/authMiddleware';
