@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import image from '../../components/landing/assets/darkStore-1.jpg';
 import { press_start_2p } from '@/constants/fonts';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
 export default function ProductCard() {
   return (
@@ -46,12 +47,17 @@ export default function ProductCard() {
 			</p> */}
       </CardContent>
       <CardFooter>
-        <Button
-          variant="ourButton"
-          className="w-full self-end"
+        <Link
+          href="/products/5"
+          className="w-full"
         >
-          More Info
-        </Button>
+          <Button
+            variant="ourButton"
+            className="w-full self-end"
+          >
+            More Info
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
