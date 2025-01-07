@@ -35,16 +35,6 @@ export default function ProductCard() {
         <p>
           <span className="font-semibold text-red-600">Stock: </span> 900
         </p>
-        {/* <p className="flex items-center gap-4">
-				<span className="font-semibold text-red-600">Quantity: </span>{' '}
-				<Input
-					type="number"
-					className="w-auto rounded-none border-2"
-					defaultValue="1"
-					min="1"
-					max="900"
-				/>
-			</p> */}
       </CardContent>
       <CardFooter>
         <Link
