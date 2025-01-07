@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import AppLayoutProvider from './AppLayoutProvider';
 import Navbar from '@/components/layouts/Navbar';
 import './globals.css';
+import Footer from '@/components/layouts/Footer';
 
 export const metadata: Metadata = {
   title: 'The Dunk Web',
@@ -20,6 +21,7 @@ export default function RootLayout({
         <AppLayoutProvider>
           <Navbar />
           {children}
+          <Footer />
         </AppLayoutProvider>
       </body>
     </html>

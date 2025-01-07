@@ -3,6 +3,7 @@ import Logo from '../global/Logo';
 import Link from 'next/link';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import ActiveLink from '../global/ActiveLink';
 
 export default function Footer() {
   return (
@@ -21,48 +22,48 @@ export default function Footer() {
 
           <ul className="grid grid-cols-2 gap-5">
             <li>
-              <Link
+              <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                 href="/"
               >
                 Home
-              </Link>
+              </ActiveLink>
             </li>
 
             <li>
-              <Link
+              <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                 href="/products"
               >
                 Products
-              </Link>
+              </ActiveLink>
             </li>
 
             <li>
-              <Link
+              <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                 href="/red-rome"
               >
                 Red Rooms
-              </Link>
+              </ActiveLink>
             </li>
 
             <li>
-              <Link
+              <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                 href="/red-rome"
               >
                 Services
-              </Link>
+              </ActiveLink>
             </li>
 
             <li>
-              <Link
+              <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                 href="/red-rome"
               >
                 Articles
-              </Link>
+              </ActiveLink>
             </li>
           </ul>
 
