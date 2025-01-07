@@ -9,10 +9,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Link from 'next/link';
 import useAuthStore from '@/hooks/useAuthStore';
 import LogoutButton from '../auth/Logoutlogic';
+import { Button } from '../ui/button';
 
 export default function UserMenu() {
-  const { isAuthenticated } = useAuthStore(); // Get the authentication state and logout function
-
+  const { isAuthenticated } = useAuthStore();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -48,14 +48,15 @@ export default function UserMenu() {
           <Link href="/red-rome">Articles</Link>
         </DropdownMenuItem>
 
-        {/* Conditionally render Sign-in or Logout */}
         {isAuthenticated ? (
           <DropdownMenuItem className="focus:bg-stone-950 focus:text-stone-100">
             <LogoutButton />
           </DropdownMenuItem>
         ) : (
           <DropdownMenuItem className="focus:bg-stone-950 focus:text-stone-100">
-            <Link href="/sign-in">Sign in</Link>
+            <Link href="/sign-in">
+              <Button className="w-full rounded-none border-2 bg-transparent text-stone-100 hover:border-red-600 hover:bg-red-600 hover:text-stone-100">Sign in</Button>
+            </Link>
           </DropdownMenuItem>
         )}
       </DropdownMenuContent>
