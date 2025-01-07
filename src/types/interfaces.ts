@@ -4,6 +4,7 @@ export interface SignupData {
   email: string;
   password: string;
   phone: string;
+  profile?: string;
 }
 
 export interface LoginData {
@@ -17,5 +18,4 @@ export interface ForgotPasswordData {
 
 export interface ResetPasswordData {
   password: string;
-  confirmPassword: string;
 }
