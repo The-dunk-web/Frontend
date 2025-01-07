@@ -1,0 +1,58 @@
+import React from 'react';
+
+import Image from 'next/image';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import image from '../../components/landing/assets/darkStore-1.jpg';
+import { press_start_2p } from '@/constants/fonts';
+import { Button } from '../ui/button';
+
+export default function ProductCard() {
+  return (
+    <Card className="flex flex-col justify-between rounded-none border-2 bg-transparent text-stone-100">
+      <div className="relative">
+        <Image
+          src={image}
+          width={900}
+          height={900}
+          alt="red room"
+        />
+        <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-features-pattern">
+          <h3 className="name text-2xl tracking-wider">Fake money</h3>
+        </div>
+      </div>
+      <CardHeader className="">
+        <CardTitle
+          className={`${press_start_2p.className} description tracking-wider text-red-600`}
+        >
+          1000000 dollars
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <p>
+          <span className="font-semibold text-red-600">Price: </span> 100$
+        </p>
+        <p>
+          <span className="font-semibold text-red-600">Stock: </span> 900
+        </p>
+        {/* <p className="flex items-center gap-4">
+				<span className="font-semibold text-red-600">Quantity: </span>{' '}
+				<Input
+					type="number"
+					className="w-auto rounded-none border-2"
+					defaultValue="1"
+					min="1"
+					max="900"
+				/>
+			</p> */}
+      </CardContent>
+      <CardFooter>
+        <Button
+          variant="ourButton"
+          className="w-full self-end"
+        >
+          More Info
+        </Button>
+      </CardFooter>
+    </Card>
+  );
+}
