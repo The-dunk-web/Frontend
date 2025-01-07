@@ -1,11 +1,13 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
 import UserMenu from '@/components/landing/UserMenu';
 import { Button } from '@/components/ui/button';
 import Logo from '../global/Logo';
+import useAuthStore from '@/middleware/authMiddleware';
 
 export default function Navbar() {
-  const user = true;
+  const { isAuthenticated } = useAuthStore();
   return (
     <div>
       <div className="fixed left-0 right-0 top-0 z-10 border-b-2 bg-stone-950/80">
@@ -57,15 +59,17 @@ export default function Navbar() {
             </ul>
           </nav>
           <div className="user">
-            {user ? (
+            {isAuthenticated ? (
               <UserMenu />
             ) : (
-              <Button
-                variant="outline"
-                className="rounded-none border-2 bg-transparent hover:bg-stone-100 hover:text-stone-950"
-              >
-                Login Now
-              </Button>
+              <Link href="/sign-in">
+                <Button
+                  variant="outline"
+                  className="rounded-none border-2 bg-transparent hover:bg-stone-100 hover:text-stone-950"
+                >
+                  Login Now
+                </Button>
+              </Link>
             )}
           </div>
         </div>

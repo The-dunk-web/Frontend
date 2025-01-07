@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-
 import AppLayoutProvider from './AppLayoutProvider';
 import Navbar from '@/components/layouts/Navbar';
 import './globals.css';
+import AuthProvider from '../providers/authProvider';
 
 export const metadata: Metadata = {
   title: 'The Dunk Web',
@@ -17,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AppLayoutProvider>
-          <Navbar />
-          {children}
-        </AppLayoutProvider>
+        <AuthProvider>
+          <AppLayoutProvider>
+            <Navbar />
+            {children}
+          </AppLayoutProvider>
+        </AuthProvider>
       </body>
     </html>
   );
