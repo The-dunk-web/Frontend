@@ -38,7 +38,7 @@ export default function ProductCard() {
       </CardContent>
       <CardFooter>
         <Link
-          href="/products/5"
+          href="/products/4a34e3d4-9bbb-41ad-abd6-c438a9c94537"
           className="w-full"
         >
           <Button
