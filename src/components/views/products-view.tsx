@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { press_start_2p } from '@/constants/fonts';
 import SearchProducts from '../products/SearchProducts';
 import AllProducts from '../products/AllProducts';
+import Link from 'next/link';
 
 export default function ProductsView() {
   return (
@@ -18,7 +19,9 @@ export default function ProductsView() {
           Get a <span className={`tracking-wider text-red-600`}>50% OFF</span> on all products when
           you sign in
         </p>
-        <Button variant="ourButton">Sign In Now</Button>
+        <Link href="./sign-in">
+          <Button variant="ourButton">Sign In Now</Button>
+        </Link>
       </header>
       <div className="container mx-auto p-10">
         <SearchProducts />
