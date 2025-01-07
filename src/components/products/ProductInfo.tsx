@@ -2,6 +2,7 @@ import React from 'react';
 import { ProductImageSlider } from './ProductImagesSlider';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import CreateVisa from './CreateVisa';
 
 export default function ProductInfo() {
   return (
@@ -37,6 +38,7 @@ export default function ProductInfo() {
 
         <Button variant="ourButton">Create order now</Button>
       </div>
+      <CreateVisa />
     </div>
   );
 }
