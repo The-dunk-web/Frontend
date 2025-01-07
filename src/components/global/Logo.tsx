@@ -13,6 +13,7 @@ export default function Logo() {
         alt="icon"
         width="45"
         height="45"
+        className="w-auto"
       />
       {/* <p className={`${press_start_2p.className} text-sm text-red-600`}>Dunk Web</p> */}
     </Link>

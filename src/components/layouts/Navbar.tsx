@@ -4,7 +4,9 @@ import React from 'react';
 import UserMenu from '@/components/landing/UserMenu';
 import { Button } from '@/components/ui/button';
 import Logo from '../global/Logo';
+import ActiveLink from '../global/ActiveLink';
 import useAuthStore from '@/middleware/authMiddleware';
+
 
 export default function Navbar() {
   const { isAuthenticated } = useAuthStore();
@@ -17,44 +19,45 @@ export default function Navbar() {
           <nav className="hidden text-sm font-medium md:block">
             <ul className="flex items-center gap-6">
               <li>
-                <Link
+                <ActiveLink
                   className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                   href="/"
                 >
                   Home
-                </Link>
+                </ActiveLink>
               </li>
+
               <li>
-                <Link
+                <ActiveLink
                   className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                   href="/products"
                 >
                   Products
-                </Link>
+                </ActiveLink>
               </li>
               <li>
-                <Link
+                <ActiveLink
                   className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                   href="/red-rome"
                 >
                   Red Rooms
-                </Link>
+                </ActiveLink>
               </li>
               <li>
-                <Link
+                <ActiveLink
                   className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                   href="/red-rome"
                 >
                   Services
-                </Link>
+                </ActiveLink>
               </li>
               <li>
-                <Link
+                <ActiveLink
                   className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
                   href="/red-rome"
                 >
                   Articles
-                </Link>
+                </ActiveLink>
               </li>
             </ul>
           </nav>
