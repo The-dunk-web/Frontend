@@ -1,4 +1,3 @@
-// components/auth/ResetPasswordForm.tsx
 'use client';
 import React, { useState } from 'react';
 import { Label } from '../ui/label';
@@ -7,7 +6,7 @@ import { Button } from '../ui/button';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ResetPasswordFormData, ResetPasswordSchema } from '@/types/schema/reset-password-schema';
-import { resetPassword } from '@/types/auth-schema';
+import { resetPassword } from '@/utils/api';
 import { useParams, useRouter } from 'next/navigation';
 
 export default function ResetPasswordForm() {

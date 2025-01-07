@@ -1,17 +1,22 @@
+'use client';
 import React from 'react';
-import { logout } from '@/types/auth-schema';
-import useAuthStore from '@/hooks/useAuthStore';
+import { logout } from '@/utils/api';
+import useAuthStore from '@/middleware/authMiddleware';
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 
 export default function LogoutButton() {
-  const { logout: clearAuth } = useAuthStore();
+  const clearAuth = useAuthStore((state) => state.logout);
   const router = useRouter();
 
   const handleLogout = async () => {
-    await logout();
-    clearAuth();
-    router.push('/sign-in');
+    try {
+      await logout();
+      clearAuth();
+      router.push('/sign-in');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
   };
 
   return (

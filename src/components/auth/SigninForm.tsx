@@ -7,13 +7,13 @@ import Link from 'next/link';
 import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SigninFormData, SigninFormSchema } from '@/types/schema/signin-form-schema';
-import { login } from '@/types/auth-schema';
-import useAuthStore from '@/hooks/useAuthStore';
+import { login } from '@/utils/api';
+import useAuthStore from '@/middleware/authMiddleware';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 export default function SigninForm() {
-  const { login: setAuth } = useAuthStore();
+  const setAuth = useAuthStore((state) => state.login);
   const router = useRouter();
   const [showCustomMessage, setShowCustomMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -36,7 +36,7 @@ export default function SigninForm() {
       setTimeout(() => {
         router.push('/');
       }, 2000);
-    } catch (error: unknown) {
+    } catch (error) {
       setErrorMessage('Something went wrong. try again.');
       setTimeout(() => {
         setErrorMessage(null);

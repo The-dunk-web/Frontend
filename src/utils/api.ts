@@ -1,14 +1,11 @@
-import { ForgotPasswordData, LoginData, ResetPasswordData, SignupData } from './interfaces';
+import { ForgotPasswordData, LoginData, ResetPasswordData, SignupData } from '../types/interfaces';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export const signup = async (data: SignupData) => {
+export const signup = async (formData: FormData): Promise<SignupData> => {
   const response = await fetch(`${API_URL}/api/auth/signup`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
+    body: formData,
   });
 
   if (!response.ok) {

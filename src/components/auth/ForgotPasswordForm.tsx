@@ -1,4 +1,3 @@
-// components/auth/ForgotPasswordForm.tsx
 'use client';
 import React, { useState } from 'react';
 import { Label } from '../ui/label';
@@ -10,7 +9,7 @@ import {
   ForgotPasswordFormData,
   ForgotPasswordSchema,
 } from '@/types/schema/forgot-password-schema';
-import { forgotPassword } from '@/types/auth-schema';
+import { forgotPassword } from '@/utils/api';
 import { useRouter } from 'next/navigation';
 
 export default function ForgotPasswordForm() {
