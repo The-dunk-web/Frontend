@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 // Define routes---
-const protectedRoutes = ['/orders', '/profile'];
+const protectedRoutes = ['/orders', '/profile', '/add-visa', '/add-crypto-wallet'];
 const publicRoute = ['/sign-in', '/sign-up', '/forget-password', '/reset-password'];
 
 export function middleware(request: NextRequest) {
