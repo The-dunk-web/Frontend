@@ -30,7 +30,7 @@ export default function UserMenu() {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100">
-          <Link href="/">My Orders</Link>
+          <Link href="/orders">My Orders</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
