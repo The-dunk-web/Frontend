@@ -26,7 +26,7 @@ export default function UserMenu() {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="me-2 mt-2 flex flex-col gap-2 rounded-none border-2 border-stone-100 bg-stone-950 p-3 text-stone-100">
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100">
-          <Link href="/">My Profile</Link>
+          <Link href="/profile">My Profile</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100">
