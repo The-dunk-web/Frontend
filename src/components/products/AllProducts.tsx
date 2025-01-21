@@ -18,7 +18,6 @@ export default function AllProducts() {
     async function getAllProducts() {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/products/`);
       const data = await res.json();
-      console.log(data.products);
       setProducts(data.products);
     }
 
