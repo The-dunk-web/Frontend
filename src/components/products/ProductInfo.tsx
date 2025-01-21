@@ -4,6 +4,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import Link from 'next/link';
 import { press_start_2p } from '@/constants/fonts';
+import PlaceOrder from './PlaceOrder';
 
 interface ProductType {
   id: string;
@@ -36,16 +37,32 @@ export default function ProductInfo({ product }: { product: ProductType }) {
           <span className="font-semibold text-red-600">Product Price: </span> {product.price}$
         </p>
 
+        <PlaceOrder product={product} />
+
+        {/*         <p className="flex items-center gap-4">
+          <span className="font-semibold text-red-600">Quantity: </span>{' '}
+          <Input
+            type="number"
+            className="w-auto rounded-none border-2"
+            defaultValue="1"
+            min="1"
+            max="900"
+          />
+        </p>
+        <p>
+          <span className="font-semibold text-red-600">Total Price: </span> 100$
+        </p>
+
         {product.quantity > 0 ? (
-          <Link href={`/products/${product.id}/order`}>
-            <Button
-              variant="ourButton"
-              className="w-full"
-            >
-              order now
-            </Button>
-          </Link>
+          // <Link href={`/products/${product.id}/order`}>
+          <Button
+            variant="ourButton"
+            className="w-full"
+          >
+            order now
+          </Button>
         ) : (
+          // </Link>
           <Button
             disabled
             variant="ourButton"
@@ -53,7 +70,7 @@ export default function ProductInfo({ product }: { product: ProductType }) {
           >
             Out Of Stock
           </Button>
-        )}
+        )} */}
       </div>
     </div>
   );
