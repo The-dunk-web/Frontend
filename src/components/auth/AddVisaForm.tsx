@@ -19,7 +19,6 @@ export default function AddVisaForm() {
   });
 
   async function onSubmit(formData: FieldValues) {
-    console.log(formData);
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/connect-visa-card`, {
         method: 'POST',
@@ -33,9 +32,6 @@ export default function AddVisaForm() {
         credentials: 'include',
       });
       const data = await res.json();
-
-      console.log('res', res);
-      console.log('data', data);
 
       if (!res.ok) {
         throw new Error(`${data.message}`);
@@ -54,7 +50,7 @@ export default function AddVisaForm() {
         description: (err as Error).message,
       });
     }
-    // reset();
+    reset();
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
