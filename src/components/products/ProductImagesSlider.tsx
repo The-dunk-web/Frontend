@@ -28,6 +28,7 @@ export function ProductImageSlider({ productImgs }: { productImgs: string[] }) {
                     width={900}
                     height={900}
                     alt="red room"
+                    className="h-[360px] object-cover"
                   />
                 </CardContent>
               </Card>
