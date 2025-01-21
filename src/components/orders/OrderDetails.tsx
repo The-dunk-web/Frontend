@@ -1,18 +1,11 @@
-import Image from 'next/image';
-import React from 'react';
-import Img from './assets/features-1.jpg';
 import { Button } from '../ui/button';
-import { Label } from '../ui/label';
-import { Input } from '../ui/input';
-import ProductInfo from '../products/ProductInfo';
 import { ProductImageSlider } from '../products/ProductImagesSlider';
-import Link from 'next/link';
 
 export default function OrderDetails() {
   return (
     <div className="grid grid-cols-2 gap-5">
       <div className="max-w-[80%] px-8">
-        <ProductImageSlider />
+        <ProductImageSlider productImgs={[]} />
         <div className="flex flex-col gap-5 p-10">
           <p>
             <span className="font-semibold text-red-600">Product Name: </span> fake money

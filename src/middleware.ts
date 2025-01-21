@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
 
   // If user tries to access protected routes without token
   if (!token && isProtectedRoute) {
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(new URL('/sign-in', request.url));
   }
 
   // If user tries to access login page with token
