@@ -14,11 +14,11 @@ import {
 import Image from 'next/image';
 const imgs = [img1, img2, img3, img4];
 
-export function ProductImageSlider() {
+export function ProductImageSlider({ productImgs }: { productImgs: string[] }) {
   return (
     <Carousel>
       <CarouselContent>
-        {imgs.map((img, index) => (
+        {productImgs?.map((img, index) => (
           <CarouselItem key={index}>
             <div>
               <Card className="rounded-none border-none bg-transparent">

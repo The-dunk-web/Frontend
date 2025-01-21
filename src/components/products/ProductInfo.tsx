@@ -20,7 +20,7 @@ export default function ProductInfo({ product }: { product: ProductType }) {
       <h1 className={`${press_start_2p.className} mb-5 text-center text-red-500`}>
         Product Details
       </h1>
-      <ProductImageSlider />
+      <ProductImageSlider productImgs={product.photos} />
       <div className="flex flex-col gap-5 p-10">
         <p>
           <span className="font-semibold text-red-600">Product Name: </span> {product.name}
