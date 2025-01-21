@@ -51,7 +51,6 @@ export default function AllOrders() {
     }
     getAllOrders();
   }, []);
-  console.log(orders);
 
   if (isLoading) {
     return <div className="text-center">Loading orders...</div>;

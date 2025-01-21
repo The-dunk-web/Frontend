@@ -45,7 +45,7 @@ export default function PlaceOrder({ product }: { product: ProductType }) {
           `${data.message} ${data.message === 'Unauthorized' ? 'Please Login in first' : ''}`
         );
       }
-      console.log(data);
+
       toast({
         className: 'bg-green-600 text-2xl tracking-wider border-green-600 text-slate-100',
         title: 'Sucess',
