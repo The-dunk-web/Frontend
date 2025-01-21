@@ -1,12 +1,12 @@
 'use client';
-import React from 'react';
+import { FieldValues, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-import { FieldValues, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { CreateVisaFormSchema, CreateVisaFormType } from '@/types/schema/create-visa-form-schema';
+import { toast } from '@/hooks/use-toast';
 
 export default function AddVisaForm() {
   const {
@@ -18,9 +18,43 @@ export default function AddVisaForm() {
     resolver: zodResolver(CreateVisaFormSchema),
   });
 
-  function onSubmit(data: FieldValues) {
-    console.log(data);
-    reset();
+  async function onSubmit(formData: FieldValues) {
+    console.log(formData);
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/orders/connect-visa-card`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          cvv: formData.cardCVV,
+        }),
+        credentials: 'include',
+      });
+      const data = await res.json();
+
+      console.log('res', res);
+      console.log('data', data);
+
+      if (!res.ok) {
+        throw new Error(`${data.message}`);
+      }
+
+      toast({
+        className: 'border-green-500 bg-green-500 text-slate-100',
+        title: 'Success',
+        description: data.message,
+      });
+    } catch (err: unknown) {
+      console.log((err as Error).message);
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: (err as Error).message,
+      });
+    }
+    // reset();
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -35,8 +69,9 @@ export default function AddVisaForm() {
         />
         {errors?.cardNumber && <p className="text-red-600">{errors.cardNumber.message}</p>}
       </div>
+
       <div className="flex items-center gap-5">
-        <div className="mb-5 grid items-center gap-1.5 tracking-wider">
+        <div className="mb-5 grid w-full items-center gap-1.5 tracking-wider">
           <Label htmlFor="expiryDate">Expiry date</Label>
           <Input
             className="h-12 rounded-none border-2 autofill:bg-transparent"
@@ -48,7 +83,7 @@ export default function AddVisaForm() {
           {errors?.expiryDate && <p className="text-red-600">{errors.expiryDate.message}</p>}
         </div>
 
-        <div className="mb-5 grid items-center gap-1.5 tracking-wider">
+        <div className="mb-5 grid w-full items-center gap-1.5 tracking-wider">
           <Label htmlFor="cardCVV">CVC/CVV</Label>
           <Input
             className="h-12 rounded-none border-2 autofill:bg-transparent"
@@ -61,15 +96,15 @@ export default function AddVisaForm() {
         </div>
       </div>
       <div className="mb-5 grid items-center gap-1.5 tracking-wider">
-        <Label htmlFor="nameOnCard">Name on Card</Label>
+        <Label htmlFor="nameOnCard">Name on Card (optional)</Label>
         <Input
           className="h-12 rounded-none border-2 autofill:bg-transparent"
           type="text"
           id="nameOnCard"
           placeholder="Name on card"
-          {...register('nameOnCard')}
+          // {...register('nameOnCard')}
         />
-        {errors?.nameOnCard && <p className="text-red-600">{errors.nameOnCard.message}</p>}
+        {/* {errors?.nameOnCard && <p className="text-red-600">{errors.nameOnCard.message}</p>} */}
       </div>
       <Button
         disabled={isSubmitting}
