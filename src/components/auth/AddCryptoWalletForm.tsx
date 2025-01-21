@@ -11,6 +11,7 @@ import {
   AddCryptoWalletSchema,
   AddCryptoWalletType,
 } from '@/types/schema/add-crypto-wallet-schema';
+import { toast } from '@/hooks/use-toast';
 
 export default function AddCryptoWalletForm() {
   const {
@@ -22,8 +23,37 @@ export default function AddCryptoWalletForm() {
     resolver: zodResolver(AddCryptoWalletSchema),
   });
 
-  function onSubmit(data: FieldValues) {
-    console.log(data);
+  async function onSubmit(formData: FieldValues) {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/orders/connect-crypto-wallet`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+          credentials: 'include',
+        }
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(`${data.message}`);
+      }
+
+      toast({
+        className: 'border-green-500 bg-green-500 text-slate-100',
+        title: 'Success',
+        description: data.message,
+      });
+    } catch (err: unknown) {
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: (err as Error).message,
+      });
+    }
     reset();
   }
   return (
@@ -35,15 +65,15 @@ export default function AddCryptoWalletForm() {
           type="text"
           id="walletAdress"
           placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
-          {...register('walletAdress')}
+          {...register('walletAddress')}
         />
-        {errors?.walletAdress && <p className="text-red-600">{errors.walletAdress.message}</p>}
+        {errors?.walletAddress && <p className="text-red-600">{errors.walletAddress.message}</p>}
       </div>
       <Button
         disabled={isSubmitting}
         className="h-12 w-full rounded-none border-2 bg-transparent font-bold text-stone-100 hover:bg-stone-100 hover:text-stone-950"
       >
-        {isSubmitting ? 'Loading...' : 'Add Crypto Wallet'}
+        {isSubmitting ? 'Loading...' : 'Add Crypto'}
       </Button>
     </form>
   );
