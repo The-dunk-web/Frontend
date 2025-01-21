@@ -1,32 +1,37 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useUser } from '@/hooks/useUser';
 
-interface User {
-  balance: number;
-  email: string;
-  firstName: string;
-  id: string;
-  lastName: string;
-  phone: string;
-  verified: boolean;
-}
 export default function ProfileView() {
-  const [userData, setUserData] = useState<User | null>(null);
+  const { userData, loading, error } = useUser();
 
-  useEffect(() => {
-    async function fetchProfileData() {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/profile`, {
-        method: 'GET',
-        credentials: 'include',
-      });
-      const data = await res.json();
+  if (loading) {
+    return <div className="text-center">Loading...</div>;
+  }
 
-      setUserData(data.user);
-    }
+  if (error) {
+    return <div className="text-center text-red-500">Error: {error}</div>;
+  }
 
-    fetchProfileData();
-  }, []);
+  if (!userData) {
+    return <div className="text-center">No user data found.</div>;
+  }
 
-  return <div>Welcome, {userData?.firstName}</div>;
+  return (
+    <div className="mx-auto w-[500px]">
+      <h1>User Profile</h1>
+      <p>
+        Name: {userData.firstName} {userData.lastName}
+      </p>
+      <p>Email: {userData.email}</p>
+      <p>Balance: {userData.balance}</p>
+      {userData.profile && (
+        <img
+          className="w-full"
+          src={userData.profile}
+          alt="Profile"
+        />
+      )}
+    </div>
+  );
 }
