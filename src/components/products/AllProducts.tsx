@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 
 export default function AllProducts() {
   return (
-    <div className="grid grid-cols-4 gap-5">
+    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       <ProductCard />
     </div>
   );
