@@ -1,7 +1,11 @@
+'use client';
 import React from 'react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
+import { FieldValues, useForm } from 'react-hook-form';
+import { UpdateUserData, UpdateUserSchema } from '@/types/schema/updata-user-data-schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 interface User {
   id: string;
@@ -17,8 +21,23 @@ interface User {
 }
 
 export default function UpdateProfileForm({ userData }: { userData: User }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<UpdateUserData>({
+    resolver: zodResolver(UpdateUserSchema),
+  });
+
+  function onSubmit(values: FieldValues) {
+    console.log(values);
+  }
+
   return (
-    <form className="flex flex-col gap-5">
+    <form
+      className="flex flex-col gap-5"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="flex items-center gap-5">
         <div className="grid w-full items-center gap-1.5 tracking-wider">
           <Label
@@ -33,7 +52,11 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
             id="firstName"
             placeholder="Your First Name"
             defaultValue={userData.firstName}
+            {...register('firstName')}
           />
+          {errors?.firstName && (
+            <p className="text-red-600">{errors.firstName.message as string}</p>
+          )}
         </div>
 
         <div className="grid w-full items-center gap-1.5 tracking-wider">
@@ -49,7 +72,9 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
             id="lastName"
             placeholder="Your Last Name"
             defaultValue={userData.lastName}
+            {...register('lastName')}
           />
+          {errors?.lastName && <p className="text-red-600">{errors.lastName.message as string}</p>}
         </div>
       </div>
 
@@ -66,7 +91,9 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
           id="email"
           placeholder="Your Email"
           defaultValue={userData.email}
+          {...register('email')}
         />
+        {errors?.email && <p className="text-red-600">{errors.email.message as string}</p>}
       </div>
 
       <div className="grid items-center gap-1.5 tracking-wider">
@@ -82,14 +109,17 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
           id="phone"
           placeholder="Your Phone Number"
           defaultValue={userData.phone}
+          {...register('phone')}
         />
+        {errors?.phone && <p className="text-red-600">{errors.phone.message as string}</p>}
       </div>
 
       <Button
+        disabled={isSubmitting}
         variant="ourButton"
         className="h-12 w-[150px] self-end"
       >
-        Update
+        {isSubmitting ? 'Updating...' : 'Update'}
       </Button>
     </form>
   );
