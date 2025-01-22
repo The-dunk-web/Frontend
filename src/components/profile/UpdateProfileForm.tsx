@@ -6,6 +6,7 @@ import { Button } from '../ui/button';
 import { FieldValues, useForm } from 'react-hook-form';
 import { UpdateUserData, UpdateUserSchema } from '@/types/schema/updata-user-data-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from '@/hooks/use-toast';
 
 interface User {
   id: string;
@@ -29,8 +30,35 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
     resolver: zodResolver(UpdateUserSchema),
   });
 
-  function onSubmit(values: FieldValues) {
-    console.log(values);
+  async function onSubmit(values: FieldValues) {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/edit-profile`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+        credentials: 'include',
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(`Error: ${res.statusText}`);
+      }
+
+      toast({
+        className: 'border-green-500 bg-green-500 text-slate-100',
+        title: 'Success',
+        description: data.message,
+      });
+    } catch (err: unknown) {
+      console.log((err as Error).message);
+      toast({
+        variant: 'destructive',
+        title: 'Error',
+        description: (err as Error).message,
+      });
+    }
   }
 
   return (
