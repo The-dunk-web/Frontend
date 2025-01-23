@@ -7,6 +7,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { UpdateUserData, UpdateUserSchema } from '@/types/schema/updata-user-data-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
+import useAuthStore from '@/middleware/authMiddleware';
 
 interface User {
   id: string;
@@ -29,6 +30,7 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
   } = useForm<UpdateUserData>({
     resolver: zodResolver(UpdateUserSchema),
   });
+  const { updateUser } = useAuthStore();
 
   async function onSubmit(values: FieldValues) {
     try {
@@ -45,6 +47,12 @@ export default function UpdateProfileForm({ userData }: { userData: User }) {
       if (!res.ok) {
         throw new Error(`Error: ${res.statusText}`);
       }
+
+      updateUser({
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+      });
 
       toast({
         className: 'border-green-500 bg-green-500 text-slate-100',

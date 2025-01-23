@@ -12,6 +12,12 @@ interface AuthState {
   initializeAuth: () => void;
   login: (user: { id: number; firstName: string; email: string; profile?: string }) => void;
   logout: () => void;
+  updateUser: (updatedUser: {
+    firstName?: string;
+    email?: string;
+    profile?: string;
+    lastName?: string;
+  }) => void;
 }
 
 const useAuthStore = create<AuthState>((set) => ({
@@ -32,6 +38,20 @@ const useAuthStore = create<AuthState>((set) => ({
     Cookies.remove('isAuthenticated');
     Cookies.remove('user');
     set({ isAuthenticated: false, user: null });
+  },
+  updateUser: (updatedUser) => {
+    set((state) => {
+      if (!state.user) return state; // If no user is logged in, do nothing
+
+      // Merge the updated fields with the existing user data
+      const newUser = { ...state.user, ...updatedUser };
+
+      // Update the cookie
+      Cookies.set('user', JSON.stringify(newUser), { expires: 7 });
+
+      // Return the new state
+      return { user: newUser };
+    });
   },
 }));
 
