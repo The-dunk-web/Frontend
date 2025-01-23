@@ -51,7 +51,7 @@ export default function Footer() {
             <li>
               <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
-                href="/red-rome"
+                href="/services"
               >
                 Services
               </ActiveLink>
@@ -60,7 +60,7 @@ export default function Footer() {
             <li>
               <ActiveLink
                 className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
-                href="/red-rome"
+                href="/articles"
               >
                 Articles
               </ActiveLink>

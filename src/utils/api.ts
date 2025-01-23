@@ -81,3 +81,31 @@ export const resetPassword = async (token: string, data: ResetPasswordData) => {
 
   return response.json();
 };
+
+// ----------------- Articles -----------------
+
+// export const getAllArticles = async () => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles`);
+//   return res.json();
+// };
+
+// export const getArticleById = async (id: string) => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles/${id}`);
+//   return res.json();
+// };
+
+// export const likeArticle = async (articleId: string) => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles/${articleId}/like`, {
+//     method: 'POST',
+//     credentials: 'include',
+//   });
+//   return res.json();
+// };
+
+// export const deleteArticle = async (articleId: string) => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles/${articleId}`, {
+//     method: 'DELETE',
+//     credentials: 'include',
+//   });
+//   return res.json();
+// };
