@@ -43,7 +43,7 @@ export default function AllArticles() {
   if (articles.length === 0) return <div className="text-center">No Articles found.</div>;
 
   return (
-    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div className="space-y-8">
       {articles.map((article) => (
         <ArticleCard
           key={article.id}
