@@ -9,16 +9,33 @@ import { toast } from '@/hooks/use-toast';
 import { articleSchema, ArticleFormData } from '@/types/schema/article-schema';
 import useAuthStore from '@/middleware/authMiddleware';
 
-export default function CreateArticleForm() {
+interface ArticleType {
+  id?: string;
+  title?: string;
+  content?: string;
+  image?: string;
+}
+interface ArticleFormProps {
+  initialData?: ArticleType;
+  onSuccess?: () => void; 
+}
+
+export default function CreateArticleForm({ initialData, onSuccess }: ArticleFormProps) {
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
   const { user } = useAuthStore();
+  const isEditMode = !!initialData;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<ArticleFormData>({
     resolver: zodResolver(articleSchema),
+    defaultValues: {
+      title: initialData?.title || '',
+      content: initialData?.content || '',
+    },
   });
 
   useEffect(() => {
@@ -26,7 +43,7 @@ export default function CreateArticleForm() {
       toast({
         variant: 'destructive',
         title: 'Authentication Required',
-        description: 'You need to login to create articles',
+        description: 'You need to login to manage articles',
       });
       router.push('/sign-in');
     }
@@ -39,28 +56,36 @@ export default function CreateArticleForm() {
       const formData = new FormData();
       formData.append('title', data.title);
       formData.append('content', data.content);
-      formData.append('authorId', user.id.toString());
       if (file) formData.append('image', file);
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/articles/create`, {
-        method: 'POST',
+      const url = isEditMode
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/articles/${initialData?.id}`
+        : `${process.env.NEXT_PUBLIC_API_URL}/api/articles/create`;
+
+      const method = isEditMode ? 'PUT' : 'POST';
+
+      const res = await fetch(url, {
+        method,
         credentials: 'include',
         body: formData,
       });
 
-      if (!res.ok) throw new Error('Failed to create article');
-
-      toast({
-        title: 'Success',
-        description: 'Article created successfully',
-      });
-      router.push('/articles');
+      if (!res.ok)
+        throw new Error(isEditMode ? 'Failed to update article' : 'Failed to create article');
+      if (isEditMode) {
+        onSuccess?.();
+      } else {
+        toast({
+          title: 'Success',
+          description: 'Article created successfully',
+        });
+        router.push('/articles');
+      }
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Something went wrong';
       toast({
         variant: 'destructive',
         title: 'Error',
-        description: errorMessage,
+        description: error instanceof Error ? error.message : 'Something went wrong',
       });
     }
   };
@@ -77,6 +102,7 @@ export default function CreateArticleForm() {
           {...register('title')}
           placeholder="Article Title"
           className="mb-4 h-16 text-xl font-bold"
+          defaultValue={initialData?.title}
         />
         {errors.title && <p className="text-red-500">{errors.title.message}</p>}
       </div>
@@ -86,6 +112,7 @@ export default function CreateArticleForm() {
           {...register('content')}
           placeholder="Article Content"
           className="h-32"
+          defaultValue={initialData?.content}
         />
         {errors.content && <p className="text-red-500">{errors.content.message}</p>}
       </div>
@@ -102,7 +129,7 @@ export default function CreateArticleForm() {
         type="submit"
         variant="ourButton"
       >
-        Publish Article
+        {isEditMode ? 'Update Article' : 'Publish Article'}
       </Button>
     </form>
   );
