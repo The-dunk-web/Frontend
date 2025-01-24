@@ -10,15 +10,23 @@ import {
 import { Button } from '../ui/button';
 import { press_start_2p } from '@/constants/fonts';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 
 interface FeatureCardProps {
   title: string;
   subTitle: string;
   image: StaticImageData;
   paragraph: string;
+  href: string;
 }
 
-export default function FeaturesCard({ title, subTitle, image, paragraph }: FeatureCardProps) {
+export default function FeaturesCard({
+  title,
+  subTitle,
+  image,
+  paragraph,
+  href,
+}: FeatureCardProps) {
   return (
     <Card className="flex flex-col justify-between rounded-none border-2 bg-transparent text-stone-100">
       <div className="relative">
@@ -28,7 +36,7 @@ export default function FeaturesCard({ title, subTitle, image, paragraph }: Feat
           height={900}
           alt="red room"
         />
-        <div className="bg-features-pattern absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center">
+        <div className="absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-features-pattern">
           <h3 className="text-2xl tracking-wider">{title}</h3>
         </div>
       </div>
@@ -41,9 +49,17 @@ export default function FeaturesCard({ title, subTitle, image, paragraph }: Feat
         <p>{paragraph}</p>
       </CardContent>
       <CardFooter>
-        <Button className="w-full self-end rounded-none border-2 border-stone-100 bg-transparent p-5 hover:bg-stone-100 hover:text-stone-950">
-          Try Now
-        </Button>
+        <Link
+          href={href}
+          className="w-full"
+        >
+          <Button
+            variant="ourButton"
+            className="w-full self-end p-5"
+          >
+            Try Now
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
