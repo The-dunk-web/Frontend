@@ -78,10 +78,12 @@ export default function PlaceOrder({ product }: { product: ProductType }) {
           max="900"
         />
       </p>
-      <p>
-        <span className="font-semibold text-red-600">Total Price: </span> {product.price * quantity}
-        $
-      </p>
+      {product.quantity > 0 && (
+        <p>
+          <span className="font-semibold text-red-600">Total Price: </span>{' '}
+          {product.price * quantity} credits
+        </p>
+      )}
 
       {product.quantity > 0 ? (
         // <Link href={`/products/${product.id}/order`}>

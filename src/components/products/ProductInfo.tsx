@@ -34,7 +34,8 @@ export default function ProductInfo({ product }: { product: ProductType }) {
           <span className="font-semibold text-red-600">Product sotk: </span> {product.quantity}
         </p>
         <p>
-          <span className="font-semibold text-red-600">Product Price: </span> {product.price}$
+          <span className="font-semibold text-red-600">Product Price: </span> {product.price}{' '}
+          credits
         </p>
 
         <PlaceOrder product={product} />

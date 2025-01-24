@@ -62,7 +62,8 @@ export default function OrderCard({ order }: { order: OrderType }) {
 
         <div className="flex flex-col justify-center gap-3">
           <p>
-            <span className="font-semibold text-red-600">Order Price: </span> {order.totalPrice}$
+            <span className="font-semibold text-red-600">Order Price: </span> {order.totalPrice}{' '}
+            credits
           </p>
           <p>
             <span className="font-semibold text-red-600">Order Status: </span> {order.status}

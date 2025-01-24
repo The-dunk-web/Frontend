@@ -40,7 +40,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
       </CardHeader>
       <CardContent className="space-y-4">
         <p>
-          <span className="font-semibold text-red-600">Price: </span> {product.price}$
+          <span className="font-semibold text-red-600">Price: </span> {product.price} credits
         </p>
         <p>
           <span className="font-semibold text-red-600">Stock: </span> {product.quantity}
