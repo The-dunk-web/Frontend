@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function ProductsView() {
   return (
     <div className="min-h-screen">
-      <header className="flex h-[400px] flex-col items-center justify-end gap-5 bg-sale-pattern bg-cover bg-center pb-10">
+      <header className="flex h-[400px] flex-col items-center justify-end gap-5 bg-sale-pattern bg-cover bg-center px-5 pb-10">
         <h1 className={`${press_start_2p.className} text-2xl tracking-wider text-red-600`}>
           dark Artifacts
         </h1>
