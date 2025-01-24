@@ -22,9 +22,6 @@ export default function AllServices() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/services/`);
         const data = await res.json();
 
-        console.log(res);
-        console.log(data);
-
         if (!res.ok) {
           throw new Error(`Error ${data.message}`);
         }

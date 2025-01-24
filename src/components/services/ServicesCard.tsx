@@ -43,7 +43,7 @@ export default function ServicesCard({ service }: { service: ServicesType }) {
 
           <div className="mt-4">
             <Link
-              href={`/articles/${service.id}`}
+              href={`/services/${service.id}`}
               className="text-sm text-red-600 hover:underline"
             >
               More details

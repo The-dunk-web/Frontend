@@ -16,7 +16,7 @@ const imgs = [img1, img2, img3, img4];
 
 export function ProductImageSlider({ productImgs }: { productImgs: string[] }) {
   return (
-    <Carousel>
+    <Carousel className="m-2">
       <CarouselContent>
         {productImgs?.map((img, index) => (
           <CarouselItem key={index}>
