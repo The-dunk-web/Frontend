@@ -14,11 +14,14 @@ const featuresDate = [
     image: redRoom,
     paragraph:
       'Experience the most forbidden, live-streamed spectacles—reserved for the truly curious.',
+    href: '/red-rome',
   },
   {
     title: 'Hidden Market',
     subTitle: 'dark Artifacts',
     image: store,
+    href: '/products',
+
     paragraph:
       'Browse our exclusive marketplace for items and services you won’t find anywhere else.',
   },
@@ -26,12 +29,15 @@ const featuresDate = [
     title: 'Dark Archives',
     subTitle: 'Secrets Unearthed',
     image: archive,
+    href: '/articles',
+
     paragraph: 'Dive into a treasure trove of articles, guides, and stories from the shadows.',
   },
   {
     title: 'Untraceable Services',
     subTitle: 'Anonymity Assured',
     image: services,
+    href: '/services',
     paragraph: 'Discover services that disappear without a trace, just like your tracks.',
   },
 ];
@@ -55,6 +61,7 @@ export default function Features() {
               subTitle={feature.subTitle}
               image={feature.image}
               paragraph={feature.paragraph}
+              href={feature.href}
             />
           ))}
         </div>

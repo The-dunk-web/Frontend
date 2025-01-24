@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const Hero = () => {
   return (
@@ -16,12 +17,14 @@ const Hero = () => {
               surreal blur.
             </p>
           </header>
-          <Button
-            variant="outline"
-            className="rounded-none border-2 bg-transparent p-6 text-lg hover:bg-stone-100 hover:text-stone-950"
-          >
-            Start Your Jounry Now
-          </Button>
+          <Link href="/products">
+            <Button
+              variant="ourButton"
+              className="p-6 text-lg"
+            >
+              Start Your Jounry Now
+            </Button>
+          </Link>
         </div>
       </div>
     </>

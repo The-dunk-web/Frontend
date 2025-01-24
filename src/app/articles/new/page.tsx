@@ -18,8 +18,10 @@ export default function NewArticlePage() {
   if (!user) return null;
 
   return (
-    <div className="container mx-auto py-16 text-center">
-      <h1 className={`mb-8 text-3xl font-bold ${press_start_2p.className} text-red-600`}>
+    <div className="container mx-auto py-16">
+      <h1
+        className={`mb-8 text-center text-3xl font-bold ${press_start_2p.className} text-red-600`}
+      >
         Write New Article
       </h1>
       <CreateArticleForm />
