@@ -8,6 +8,7 @@ import UpdateProfileForm from './UpdateProfileForm';
 import ChangePasswordForm from './ChangePasswordForm';
 import { press_start_2p } from '@/constants/fonts';
 import UserCredits from './UserCredits';
+import ImageUpload from './ImageUpload';
 
 export default function ProfileView() {
   const { userData, loading, error } = useUser();
@@ -38,8 +39,10 @@ export default function ProfileView() {
             width={900}
             height={900}
             className="h-full object-cover"
+            priority
           />
         </div>
+        <ImageUpload />
       </div>
 
       <div className="pt-10">
