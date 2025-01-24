@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import { toast } from '@/hooks/use-toast';
 import { articleSchema, ArticleFormData } from '@/types/schema/article-schema';
 import useAuthStore from '@/middleware/authMiddleware';
+import { Label } from '../ui/label';
+import { Textarea } from '../ui/textarea';
 
 interface ArticleType {
   id?: string;
@@ -17,19 +19,20 @@ interface ArticleType {
 }
 interface ArticleFormProps {
   initialData?: ArticleType;
-  onSuccess?: () => void; 
+  onSuccess?: () => void;
 }
 
 export default function CreateArticleForm({ initialData, onSuccess }: ArticleFormProps) {
   const router = useRouter();
   const [file, setFile] = useState<File | null>(null);
+  const [imgError, setImageError] = useState('');
   const { user } = useAuthStore();
   const isEditMode = !!initialData;
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<ArticleFormData>({
     resolver: zodResolver(articleSchema),
     defaultValues: {
@@ -51,12 +54,17 @@ export default function CreateArticleForm({ initialData, onSuccess }: ArticleFor
 
   const onSubmit = async (data: ArticleFormData) => {
     if (!user) return;
+    if (!file) {
+      setImageError('Article Image is Required');
+      return;
+    }
 
     try {
+      setImageError('');
       const formData = new FormData();
       formData.append('title', data.title);
       formData.append('content', data.content);
-      if (file) formData.append('image', file);
+      formData.append('image', file);
 
       const url = isEditMode
         ? `${process.env.NEXT_PUBLIC_API_URL}/api/articles/${initialData?.id}`
@@ -95,37 +103,57 @@ export default function CreateArticleForm({ initialData, onSuccess }: ArticleFor
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto max-w-2xl space-y-6"
+      className="mx-auto max-w-2xl"
     >
-      <div>
+      <div className="mb-5 grid gap-1.5 tracking-wider">
+        <Label htmlFor="articleTitle">Article Title</Label>
         <Input
+          id="articleTitle"
+          className="h-14 rounded-none border-2 text-xl font-bold autofill:bg-transparent"
           {...register('title')}
           placeholder="Article Title"
-          className="mb-4 h-16 text-xl font-bold"
           defaultValue={initialData?.title}
         />
         {errors.title && <p className="text-red-500">{errors.title.message}</p>}
       </div>
 
-      <div>
-        <Input
+      <div className="mb-5 grid gap-1.5 tracking-wider">
+        <Label htmlFor="arcielContent">Article Content</Label>
+        <Textarea
+          id="arcielContent"
           {...register('content')}
           placeholder="Article Content"
-          className="h-32"
+          className="min-h-32 rounded-none border-2 text-xl font-bold autofill:bg-transparent"
           defaultValue={initialData?.content}
         />
         {errors.content && <p className="text-red-500">{errors.content.message}</p>}
       </div>
+      {/*       <div>
+        <Input
+          {...register('content')}
+          placeholder="Article Content"
+          className="mb-4 h-32"
+          defaultValue={initialData?.content}
+        />
+        {errors.content && <p className="text-red-500">{errors.content.message}</p>}
+      </div> */}
 
-      <div>
+      <div className="mb-5 grid gap-1.5 tracking-wider">
+        <Label htmlFor="articleImage">Article Image</Label>
+
         <input
+          id="articleImage"
+          disabled={isSubmitting}
+          className="mb-5"
           type="file"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
           accept="image/*"
         />
+        {imgError && <p className="text-red-500">{imgError}</p>}
       </div>
 
       <Button
+        disabled={isSubmitting}
         type="submit"
         variant="ourButton"
       >
