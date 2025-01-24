@@ -121,7 +121,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
           </p>
           <p>
             <span className="font-semibold text-red-600">Product Price: </span>
-            {orderDetails.product.price}$
+            {orderDetails.product.price} credits
           </p>
         </div>
       </div>
@@ -133,7 +133,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
           </p>
           <p>
             <span className="font-semibold text-red-600">Order Price: </span>{' '}
-            {orderDetails.totalPrice}$
+            {orderDetails.totalPrice} credits
           </p>
           <p>
             <span className="font-semibold text-red-600">Order Status: </span> {orderDetails.status}
