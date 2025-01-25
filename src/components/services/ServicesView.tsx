@@ -6,7 +6,7 @@ import AllServices from './AllServices';
 export default function ServicesView() {
   return (
     <div className="min-h-screen">
-      <header className="bg-services-pattern mb-10 flex h-[400px] flex-col items-center justify-end gap-5 bg-cover bg-center pb-10">
+      <header className="mb-10 flex h-[400px] flex-col items-center justify-end gap-5 bg-services-pattern bg-cover bg-center pb-10">
         <h1 className={`${press_start_2p.className} text-2xl tracking-wider text-red-600`}>
           Untraceable Services
         </h1>
@@ -14,7 +14,7 @@ export default function ServicesView() {
           Discover services that disappear without a trace, just like your tracks.
         </p>
 
-        <Link href="./sign-in">
+        <Link href="/services/new">
           <Button variant="ourButton">Create a Services now</Button>
         </Link>
       </header>
