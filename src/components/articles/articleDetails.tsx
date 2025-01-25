@@ -73,7 +73,13 @@ export default function ArticleDetails({
         <span>{calculateReadTime(article.content)} min read</span>
         <span>•</span>
         <span>
-          By {article.author.firstName} {article.author.lastName}
+          By{' '}
+          <span className="">
+            {article.author.firstName} {article.author.lastName}
+          </span>
+          {user?.id + '' === article.authorId && (
+            <span className="ms-2 text-sm text-red-500"> (Your article) </span>
+          )}
         </span>
       </div>
 
@@ -115,7 +121,6 @@ export default function ArticleDetails({
               Edit
             </Button>
 
-            
             <Button
               variant="destructive"
               onClick={() => setShowDeleteModal(true)}

@@ -1,3 +1,4 @@
+'use client';
 import { press_start_2p } from '@/constants/fonts';
 import React from 'react';
 import { ProductImageSlider } from '../products/ProductImagesSlider';
@@ -5,6 +6,7 @@ import Image from 'next/image';
 import Img from './assets/features-1.jpg';
 import { Button } from '../ui/button';
 import GetServiceBtn from './GetServiceBtn';
+import useAuthStore from '@/middleware/authMiddleware';
 
 interface ServicesType {
   id: string;
@@ -22,6 +24,9 @@ interface ServicesType {
 }
 
 export default function ServiceDetails({ service }: { service: ServicesType }) {
+  console.log(service);
+  const { user } = useAuthStore();
+  console.log(user);
   return (
     <div className="mx-auto w-full max-w-2xl px-8">
       <div className="space-y-5">
@@ -36,8 +41,10 @@ export default function ServiceDetails({ service }: { service: ServicesType }) {
             />
           </div>
           <p className="space-x-3 font-semibold text-red-600">
-            {`${service.user.firstName} ${service.user.lastName}`}{' '}
-            <span className="text-sm text-zinc-500">Owner</span>
+            {`${service.user.firstName} ${service.user.lastName}`}
+            {user?.id + '' === service.userId && (
+              <span className="ms-2 text-sm text-zinc-500"> Your service</span>
+            )}
           </p>
         </div>
 

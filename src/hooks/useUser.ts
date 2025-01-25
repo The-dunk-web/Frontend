@@ -11,6 +11,11 @@ interface User {
   balance: number;
   resetPasswordToken: string | null;
   resetPasswordExpires: string | null;
+  visaCards: {
+    cardNumber: string;
+    cvv: string;
+    expiryDate: string;
+  }[];
 }
 
 export function useUser() {

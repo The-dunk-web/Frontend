@@ -18,7 +18,8 @@ export default function UserMenu() {
       <DropdownMenuTrigger>
         <Avatar>
           <AvatarImage
-            src={user?.profile}
+            className="object-cover"
+            src={user?.profile || './no-image.jpg'}
             alt={`${user?.firstName}`}
           />
           <AvatarFallback>CN</AvatarFallback>

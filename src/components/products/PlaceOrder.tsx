@@ -41,6 +41,14 @@ export default function PlaceOrder({ product }: { product: ProductType }) {
       );
       const data = await res.json();
       if (!res.ok) {
+        if (data.message === 'No connected card found. Please connect a card.') {
+          router.push('/add-visa');
+        }
+
+        if (data.message === 'Insufficient balance. Connect your crypto wallet.') {
+          router.push('/add-crypto-wallet');
+        }
+
         throw new Error(
           `${data.message} ${data.message === 'Unauthorized' ? 'Please Login in first' : ''}`
         );
@@ -54,6 +62,8 @@ export default function PlaceOrder({ product }: { product: ProductType }) {
 
       setTimeout(() => router.push(`/orders/${data.order.id}`), 1000);
     } catch (err: unknown) {
+      console.log((err as Error).message);
+
       toast({
         className: 'bg-red-600 text-2xl tracking-wider',
         variant: 'destructive',

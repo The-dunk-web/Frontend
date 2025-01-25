@@ -3,15 +3,17 @@ import Image from 'next/image';
 
 import { useUser } from '@/hooks/useUser';
 
-import ProfileImg from './assets/features-1.jpg';
 import UpdateProfileForm from './UpdateProfileForm';
 import ChangePasswordForm from './ChangePasswordForm';
 import { press_start_2p } from '@/constants/fonts';
 import UserCredits from './UserCredits';
 import ImageUpload from './ImageUpload';
+import useAuthStore from '@/middleware/authMiddleware';
+import ImgFallback from './assets/no-image.jpg';
 
 export default function ProfileView() {
   const { userData, loading, error } = useUser();
+  const { user } = useAuthStore();
   if (loading) {
     return <div className="text-center">Loading...</div>;
   }
@@ -34,7 +36,7 @@ export default function ProfileView() {
         </h1>
         <div className="mx-auto mb-10 h-[150px] w-[150px] overflow-hidden rounded-full">
           <Image
-            src={userData.profile || ProfileImg}
+            src={user?.profile || ImgFallback}
             alt="Profile Image"
             width={900}
             height={900}
