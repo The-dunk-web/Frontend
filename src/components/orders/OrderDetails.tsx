@@ -108,10 +108,10 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
 
   const statusColor =
     orderDetails.status === 'pending'
-      ? 'orange'
+      ? 'bg-orange-500/20 text-orange-600'
       : orderDetails.status === 'finished'
-        ? 'green'
-        : 'red';
+        ? 'bg-green-500/20 text-green-600'
+        : 'bg-red-500/20 text-red-600';
 
   return (
     <div className="grid grid-cols-2 gap-5">
@@ -144,12 +144,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
           </p>
           <p>
             <span className="font-semibold text-red-600">Order Status: </span>{' '}
-            <span
-              className={`rounded-md bg-${statusColor}-500/20 p-1 px-2 text-${statusColor}-600`}
-            >
-              {' '}
-              {orderDetails.status}
-            </span>
+            <span className={`rounded-md ${statusColor} p-1 px-2`}> {orderDetails.status}</span>
           </p>
           <p>
             <span className="font-semibold text-red-600">Created At: </span>{' '}
