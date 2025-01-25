@@ -7,7 +7,7 @@ import ActiveLink from '../global/ActiveLink';
 
 export default function Footer() {
   return (
-    <footer className="bg-footer-pattern bg-cover bg-center">
+    <footer className="bg-footer-pattern bg-cover bg-center px-5">
       <div className="container mx-auto py-10">
         <div className="grid items-center gap-5 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-5">
