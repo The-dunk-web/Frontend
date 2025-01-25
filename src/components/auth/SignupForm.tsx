@@ -144,7 +144,7 @@ export default function SignupForm() {
       {showSuccessModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
           <div className="flex h-full w-full items-center justify-center bg-cover bg-center">
-            <div className="flicker bg-signup-message-pattern rounded-lg border-2 border-stone-700 bg-black bg-opacity-70 p-8 text-center">
+            <div className="flicker rounded-lg border-2 border-stone-700 bg-black bg-opacity-70 bg-signup-message-pattern p-8 text-center">
               <p className="glitch mb-6 text-lg text-stone-300">
                 You are now a member of The Dunk Web. The gateway to the void awaits. Will you
                 cross?
