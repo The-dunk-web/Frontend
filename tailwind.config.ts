@@ -24,6 +24,10 @@ export default {
 
         'articles-pattern':
           'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/articles.jpg)',
+
+        'red-room-pattern':
+          'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/red-room.jpg)',
+
         'sale-pattern':
           'linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/sale.jpg)',
 
