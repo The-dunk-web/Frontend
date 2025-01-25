@@ -43,15 +43,15 @@ export default function UserMenu() {
         </DropdownMenuItem>
 
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
-          <Link href="/red-rome">Red Room</Link>
+          <Link href="/red-room">Red Room</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
-          <Link href="/red-rome">Services</Link>
+          <Link href="/services">Services</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem className="rounded-none border-2 border-transparent pb-1 hover:border-b-2 hover:border-b-stone-100 focus:bg-stone-950 focus:text-stone-100 md:hidden">
-          <Link href="/red-rome">Articles</Link>
+          <Link href="/articles">Articles</Link>
         </DropdownMenuItem>
 
         {isAuthenticated ? (

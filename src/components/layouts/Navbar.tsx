@@ -14,7 +14,7 @@ export default function Navbar() {
             <ul className="flex items-center gap-6">
               <li>
                 <ActiveLink
-                  className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                  className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                   href="/"
                 >
                   Home
@@ -23,7 +23,7 @@ export default function Navbar() {
 
               <li>
                 <ActiveLink
-                  className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                  className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                   href="/products"
                 >
                   Products
@@ -31,15 +31,15 @@ export default function Navbar() {
               </li>
               <li>
                 <ActiveLink
-                  className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
-                  href="/red-rome"
+                  className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
+                  href="/red-room"
                 >
                   Red Rooms
                 </ActiveLink>
               </li>
               <li>
                 <ActiveLink
-                  className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                  className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                   href="/services"
                 >
                   Services
@@ -47,7 +47,7 @@ export default function Navbar() {
               </li>
               <li>
                 <ActiveLink
-                  className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                  className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                   href="/articles"
                 >
                   Articles

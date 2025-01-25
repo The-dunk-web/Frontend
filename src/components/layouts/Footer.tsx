@@ -23,7 +23,7 @@ export default function Footer() {
           <ul className="grid grid-cols-2 gap-5">
             <li>
               <ActiveLink
-                className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                 href="/"
               >
                 Home
@@ -32,7 +32,7 @@ export default function Footer() {
 
             <li>
               <ActiveLink
-                className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                 href="/products"
               >
                 Products
@@ -41,8 +41,8 @@ export default function Footer() {
 
             <li>
               <ActiveLink
-                className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
-                href="/red-rome"
+                className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
+                href="/red-room"
               >
                 Red Rooms
               </ActiveLink>
@@ -50,7 +50,7 @@ export default function Footer() {
 
             <li>
               <ActiveLink
-                className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                 href="/services"
               >
                 Services
@@ -59,7 +59,7 @@ export default function Footer() {
 
             <li>
               <ActiveLink
-                className="border-b-2 border-transparent px-2 py-1 hover:border-b-stone-100"
+                className="border-b-2 border-transparent px-2 py-1 hover:text-red-500"
                 href="/articles"
               >
                 Articles

@@ -15,7 +15,7 @@ export default function ActiveLink({ children, ...props }: ActiveLinkProps) {
 
   return (
     <Link
-      className={`${props.className} ${pathName === props.href ? 'border-b-stone-100' : ''}`}
+      className={`${props.className} ${pathName === props.href ? 'text-red-500' : ''}`}
       href={props.href}
     >
       {children}
