@@ -60,7 +60,7 @@ export default function ImageUpload() {
           disabled={isSubmitting}
           id="articleImage"
           type="file"
-          className="w-auto"
+          className="max-w-80"
           onChange={(e) => setFile(e.target.files?.[0] || null)}
           accept="image/*"
         />

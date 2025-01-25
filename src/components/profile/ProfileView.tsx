@@ -10,6 +10,7 @@ import UserCredits from './UserCredits';
 import ImageUpload from './ImageUpload';
 import useAuthStore from '@/middleware/authMiddleware';
 import ImgFallback from './assets/no-image.jpg';
+import DeleteAccount from './DeleteAccount';
 
 export default function ProfileView() {
   const { userData, loading, error } = useUser();
@@ -74,6 +75,18 @@ export default function ProfileView() {
         </h2>
 
         <ChangePasswordForm />
+      </div>
+
+      <div className="flex flex-col pt-10">
+        <h2
+          className={`${press_start_2p.className} text-md mb-5 text-center tracking-wider text-red-600`}
+        >
+          Delete Your account
+        </h2>
+
+        <div className="self-end">
+          <DeleteAccount />
+        </div>
       </div>
     </div>
   );
