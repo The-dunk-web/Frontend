@@ -43,7 +43,6 @@ export default function AddVisaForm() {
         description: data.message,
       });
     } catch (err: unknown) {
-      console.log((err as Error).message);
       toast({
         variant: 'destructive',
         title: 'Error',

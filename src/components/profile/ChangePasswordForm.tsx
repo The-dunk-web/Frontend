@@ -20,7 +20,6 @@ export default function ChangePasswordForm() {
   });
 
   async function onSubmit(values: FieldValues) {
-    console.log(values);
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/change-password`, {
         method: 'POST',
