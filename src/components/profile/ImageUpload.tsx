@@ -4,11 +4,12 @@ import { Button } from '../ui/button';
 import { useForm } from 'react-hook-form';
 import { toast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import useAuthStore from '@/middleware/authMiddleware';
 
 export default function ImageUpload() {
   const [file, setFile] = useState<File | null>(null);
   const [imgError, setImageError] = useState('');
-  const router = useRouter();
+  const { updateUser } = useAuthStore();
 
   const {
     handleSubmit,
@@ -31,7 +32,9 @@ export default function ImageUpload() {
       });
       const data = await res.json();
 
-      window.location.reload();
+      updateUser({
+        profile: data.user.profile,
+      });
 
       if (!res.ok) {
         throw new Error(`Error: ${res.statusText}`);
