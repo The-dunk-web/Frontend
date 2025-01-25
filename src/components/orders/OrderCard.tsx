@@ -25,6 +25,8 @@ interface OrderType {
 }
 
 export default function OrderCard({ order }: { order: OrderType }) {
+  const statusColor =
+    order.status === 'pending' ? 'orange' : order.status === 'finished' ? 'green' : 'red';
   return (
     <div className="pt-2">
       <Link
@@ -66,7 +68,13 @@ export default function OrderCard({ order }: { order: OrderType }) {
             credits
           </p>
           <p>
-            <span className="font-semibold text-red-600">Order Status: </span> {order.status}
+            <span className="font-semibold text-red-600">Order Status: </span>{' '}
+            <span
+              className={`rounded-md bg-${statusColor}-500/20 p-1 px-2 text-${statusColor}-600`}
+            >
+              {' '}
+              {order.status}
+            </span>
           </p>
           <p>
             <span className="font-semibold text-red-600">Order Date: </span>{' '}
