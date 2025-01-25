@@ -30,7 +30,6 @@ export default function ImageUpload() {
         credentials: 'include',
       });
       const data = await res.json();
-      console.log(data);
 
       window.location.reload();
 
@@ -44,7 +43,6 @@ export default function ImageUpload() {
         description: data.message,
       });
     } catch (err: unknown) {
-      console.log((err as Error).message);
       toast({
         variant: 'destructive',
         title: 'Error',

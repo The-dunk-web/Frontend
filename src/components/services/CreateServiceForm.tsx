@@ -56,7 +56,6 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
   }, [user, router]);
 
   const onSubmit = async (data: ServicesFormType) => {
-    console.log(data);
     if (!user) return;
     if (!file) {
       setImageError('Service Image is Required');
@@ -72,7 +71,7 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
       formData.append('photos', file);
 
       const url = isEditMode
-        ? `${process.env.NEXT_PUBLIC_API_URL}/api/services/${initialData?.id}`
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/services/update/${initialData?.id}`
         : `${process.env.NEXT_PUBLIC_API_URL}/api/services/create`;
 
       const method = isEditMode ? 'PUT' : 'POST';
@@ -82,12 +81,15 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
         credentials: 'include',
         body: formData,
       });
-      console.log(res);
 
       if (!res.ok)
         throw new Error(isEditMode ? 'Failed to update service' : 'Failed to create service');
       if (isEditMode) {
-        onSuccess?.();
+        toast({
+          title: 'Success',
+          description: 'Service Updated successfully',
+        });
+        router.push(`/services/${initialData?.id}`);
       } else {
         toast({
           title: 'Success',

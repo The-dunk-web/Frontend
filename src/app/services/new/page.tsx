@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function page() {
   return (
-    <div className="px- container mx-auto">
+    <div className="container mx-auto px-5">
       <NewServiceView />
     </div>
   );

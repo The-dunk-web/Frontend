@@ -22,8 +22,7 @@ interface ServicesType {
 
 export default function GetServiceBtn({ service }: { service: ServicesType }) {
   const { user } = useAuthStore();
-  console.log(service);
-  console.log(user);
+
   const isOwner = user?.id + '' === service.userId;
 
   function handleGetService() {
