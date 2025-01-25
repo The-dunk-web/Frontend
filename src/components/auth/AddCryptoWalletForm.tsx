@@ -12,6 +12,7 @@ import {
   AddCryptoWalletType,
 } from '@/types/schema/add-crypto-wallet-schema';
 import { toast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 export default function AddCryptoWalletForm() {
   const {
@@ -22,6 +23,7 @@ export default function AddCryptoWalletForm() {
   } = useForm<AddCryptoWalletType>({
     resolver: zodResolver(AddCryptoWalletSchema),
   });
+  const router = useRouter();
 
   async function onSubmit(formData: FieldValues) {
     try {
@@ -47,6 +49,7 @@ export default function AddCryptoWalletForm() {
         title: 'Success',
         description: data.message,
       });
+      router.back();
     } catch (err: unknown) {
       toast({
         variant: 'destructive',

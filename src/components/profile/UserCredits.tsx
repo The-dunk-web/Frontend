@@ -21,7 +21,6 @@ interface User {
 }
 
 export default function UserCredits({ userData }: { userData: User }) {
-  console.log(userData);
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
@@ -30,7 +29,7 @@ export default function UserCredits({ userData }: { userData: User }) {
           {userData?.visaCards[0]?.cardNumber || 'No Vise Found'}
         </p>
         {userData.visaCards.length === 0 && (
-          <Link href="/add-crypto-wallet">
+          <Link href="/add-visa">
             <Button
               variant="ourButton"
               className="h-12 w-[150px]"
@@ -51,7 +50,7 @@ export default function UserCredits({ userData }: { userData: User }) {
               variant="ourButton"
               className="h-12 w-[150px]"
             >
-              Add More
+              Add Credits
             </Button>
           </Link>
         )}

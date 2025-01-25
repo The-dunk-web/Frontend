@@ -7,6 +7,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { CreateVisaFormSchema, CreateVisaFormType } from '@/types/schema/create-visa-form-schema';
 import { toast } from '@/hooks/use-toast';
+import { useRouter } from 'next/navigation';
 
 export default function AddVisaForm() {
   const {
@@ -17,6 +18,7 @@ export default function AddVisaForm() {
   } = useForm<CreateVisaFormType>({
     resolver: zodResolver(CreateVisaFormSchema),
   });
+  const router = useRouter();
 
   async function onSubmit(formData: FieldValues) {
     try {
@@ -42,6 +44,7 @@ export default function AddVisaForm() {
         title: 'Success',
         description: data.message,
       });
+      router.back();
     } catch (err: unknown) {
       toast({
         variant: 'destructive',
