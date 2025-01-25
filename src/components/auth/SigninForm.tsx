@@ -34,7 +34,8 @@ export default function SigninForm() {
       setShowCustomMessage(true);
       reset();
       setTimeout(() => {
-        router.push('/');
+        if (response.user.profile) router.push('/');
+        else router.push('/profile');
       }, 2000);
     } catch (error) {
       setErrorMessage('Invalid Email or Password');
