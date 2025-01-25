@@ -18,6 +18,7 @@ interface ServicesType {
     lastName: string;
     profile: string;
   };
+  userId: string;
 }
 
 export default function ServiceDetails({ service }: { service: ServicesType }) {
@@ -61,7 +62,7 @@ export default function ServiceDetails({ service }: { service: ServicesType }) {
             {service.overallRating}
           </p>
 
-          <GetServiceBtn />
+          <GetServiceBtn service={service} />
         </div>
       </div>
     </div>
