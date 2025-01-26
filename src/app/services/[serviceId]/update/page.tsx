@@ -15,7 +15,7 @@ export default async function page({ params }: { params: { serviceId: string } }
           name: data.service.name,
           description: data.service.description,
           price: data.service.price,
-          photos: data.service.images[0] || '',
+          photos: data.service.images || [],
         }}
       />
     </div>

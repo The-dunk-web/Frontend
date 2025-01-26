@@ -6,6 +6,7 @@ export const servicesSchema = z.object({
   price: z.coerce
     .number({ required_error: 'Price is required', invalid_type_error: 'Price must be a number' })
     .min(1, 'Price must be at eleast 1 credit'),
+  photos: z.array(z.string()).optional(),
 });
 
 export type ServicesFormType = z.infer<typeof servicesSchema>;

@@ -17,7 +17,7 @@ interface ServiceType {
   name?: string;
   description?: string;
   price?: number;
-  photos?: string;
+  photos?: string[];
 }
 interface ServiceFormProps {
   initialData?: ServiceType;
@@ -41,6 +41,7 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
       name: initialData?.name || '',
       description: initialData?.description || '',
       price: initialData?.price || 0,
+      photos: initialData?.photos || [],
     },
   });
 
@@ -57,7 +58,7 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
 
   const onSubmit = async (data: ServicesFormType) => {
     if (!user) return;
-    if (!file) {
+    if (!file && !isEditMode) {
       setImageError('Service Image is Required');
       return;
     }
