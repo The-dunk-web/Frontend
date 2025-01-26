@@ -52,6 +52,7 @@ export default function ArticleCard({ article }: { article: ArticleType }) {
             <Image
               src={article.image}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="rounded-sm object-cover"
               alt={article.title}
               priority

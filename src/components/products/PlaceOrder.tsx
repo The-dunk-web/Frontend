@@ -55,8 +55,6 @@ export default function PlaceOrder({ product }: { product: ProductType }) {
 
       setTimeout(() => router.push(`/orders/${data.order.id}`), 1000);
     } catch (err: unknown) {
-      console.log((err as Error).message);
-
       toast({
         className: 'bg-red-600 text-2xl tracking-wider',
         variant: 'destructive',

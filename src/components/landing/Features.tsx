@@ -1,11 +1,11 @@
 import { press_start_2p } from '@/constants/fonts';
 import React from 'react';
 
+import redRoom from '@/assets/red-room.jpg';
+import archive from '@/assets/archive.jpg';
+import store from '@/assets/darkStore-1.jpg';
+import services from '@/assets/services.jpg';
 import FeaturesCard from './FeatureCard';
-import redRoom from './assets/red-room.jpg';
-import archive from './assets/archive.jpg';
-import store from './assets/darkStore-1.jpg';
-import services from './assets/services.jpg';
 
 const featuresDate = [
   {

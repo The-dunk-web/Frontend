@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import Img from './assets/features-1.jpg';
+import Img from '@/assets/features-1.jpg';
 import { OrderType } from '@/types/interfaces';
 
 export default function OrderCard({ order }: { order: OrderType }) {

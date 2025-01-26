@@ -4,15 +4,13 @@ import Image from 'next/image';
 
 import { press_start_2p } from '@/constants/fonts';
 import { ProductImageSlider } from '../products/ProductImagesSlider';
-import Img from './assets/features-1.jpg';
+import Img from '@/assets/features-1.jpg';
 import GetServiceBtn from './GetServiceBtn';
 import useAuthStore from '@/middleware/authMiddleware';
 import { ServicesType } from '@/types/interfaces';
 
 export default function ServiceDetails({ service }: { service: ServicesType }) {
-  console.log(service);
   const { user } = useAuthStore();
-  console.log(user);
   return (
     <div className="mx-auto w-full max-w-2xl px-8">
       <div className="space-y-5">

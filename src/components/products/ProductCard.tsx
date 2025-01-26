@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import image from '../../components/landing/assets/darkStore-1.jpg';
+import image from '@/assets/darkStore-1.jpg';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { press_start_2p } from '@/constants/fonts';
 import { Button } from '../ui/button';

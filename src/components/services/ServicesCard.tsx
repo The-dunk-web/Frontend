@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { press_start_2p } from '@/constants/fonts';
 import { Card, CardContent, CardHeader } from '../ui/card';
-import Img from './assets/features-1.jpg';
+import Img from '@/assets/features-1.jpg';
 import { ServicesType } from '@/types/interfaces';
 
 export default function ServicesCard({ service }: { service: ServicesType }) {
@@ -48,6 +48,7 @@ export default function ServicesCard({ service }: { service: ServicesType }) {
           <Image
             src={service?.images[0] || Img}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-sm object-cover"
             alt="sdfds"
             priority

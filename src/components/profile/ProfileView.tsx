@@ -9,7 +9,7 @@ import { press_start_2p } from '@/constants/fonts';
 import UserCredits from './UserCredits';
 import ImageUpload from './ImageUpload';
 import useAuthStore from '@/middleware/authMiddleware';
-import ImgFallback from './assets/no-image.jpg';
+import ImgFallback from '@/assets/no-image.jpg';
 import DeleteAccount from './DeleteAccount';
 
 export default function ProfileView() {

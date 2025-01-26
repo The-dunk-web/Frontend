@@ -1,8 +1,4 @@
 import * as React from 'react';
-import img1 from '../landing/assets/darkStore-1.jpg';
-import img2 from '../landing/assets/archive-2.jpg';
-import img3 from '../landing/assets/archive.jpg';
-import img4 from '../landing/assets/services.jpg';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel,
@@ -12,7 +8,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
-const imgs = [img1, img2, img3, img4];
 
 export function ProductImageSlider({ productImgs }: { productImgs: string[] }) {
   return (

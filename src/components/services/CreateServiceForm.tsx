@@ -26,7 +26,7 @@ interface ServiceFormProps {
 
 export default function CreateServicesForm({ initialData, onSuccess }: ServiceFormProps) {
   const router = useRouter();
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File[] | null>(null);
   const [imgError, setImageError] = useState('');
   const { user } = useAuthStore();
   const isEditMode = !!initialData;
@@ -68,7 +68,10 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
       formData.append('name', data.name);
       formData.append('description', data.description);
       formData.append('price', data.price + '');
-      formData.append('photos', file);
+      // formData.append('photos', file);
+      file?.forEach((file) => {
+        formData.append('photos', file);
+      });
 
       const url = isEditMode
         ? `${process.env.NEXT_PUBLIC_API_URL}/api/services/update/${initialData?.id}`
@@ -157,8 +160,17 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
           disabled={isSubmitting}
           className="mb-5"
           type="file"
-          onChange={(e) => setFile(e.target.files?.[0] || null)}
+          onChange={(e) => {
+            const files = e.target.files;
+            if (files) {
+              const fileArray = Array.from(files);
+              setFile(fileArray);
+            }
+            // setFile(e.target.files?.[0] || null);
+            // setFile(arr || null);
+          }}
           accept="image/*"
+          multiple
         />
         {imgError && <p className="text-red-500">{imgError}</p>}
       </div>
