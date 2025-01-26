@@ -14,7 +14,7 @@ const featuresDate = [
     image: redRoom,
     paragraph:
       'Experience the most forbidden, live-streamed spectacles—reserved for the truly curious.',
-    href: '/red-rome',
+    href: '/red-room',
   },
   {
     title: 'Hidden Market',
