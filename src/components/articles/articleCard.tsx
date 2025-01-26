@@ -26,9 +26,7 @@ export default function ArticleCard({ article }: { article: ArticleType }) {
               <span>•</span>
               <span>{readTime} min read</span>
             </div>
-            <h3 className={`${press_start_2p.className} mb-4 text-xl text-red-600 md:text-2xl`}>
-              {article.title}
-            </h3>
+            <h3 className={`mb-4 text-xl text-red-600 md:text-2xl`}>{article.title}</h3>
           </CardHeader>
 
           <CardContent className="p-0">
