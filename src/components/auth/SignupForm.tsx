@@ -22,7 +22,7 @@ export default function SignupForm() {
   const router = useRouter();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [profilePicture, setProfilePicture] = useState<File | null>(null);
+  // const [profilePicture, setProfilePicture] = useState<File | null>(null);
 
   async function onSubmit(data: FieldValues) {
     const formData = new FormData();
@@ -31,16 +31,16 @@ export default function SignupForm() {
     formData.append('email', data.email);
     formData.append('password', data.password);
     formData.append('phone', data.phone);
-    if (profilePicture) {
-      formData.append('profilePicture', profilePicture);
-    }
+    // if (profilePicture) {
+    //   formData.append('profilePicture', profilePicture);
+    // }
 
     try {
-      const user = await signup(formData);
+      await signup(formData);
       reset();
       setShowSuccessModal(true);
     } catch (error) {
-      setErrorMessage('Something went wrong. Try again.');
+      setErrorMessage(`Something went wrong. Try again. ${(error as Error).message}`);
       setTimeout(() => {
         setErrorMessage(null);
       }, 2000);

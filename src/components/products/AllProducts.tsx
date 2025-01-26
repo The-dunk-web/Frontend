@@ -1,15 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
+import { ProductType } from '@/types/interfaces';
 
 export default function AllProducts() {
   const [products, setProducts] = useState<ProductType[] | []>([]);

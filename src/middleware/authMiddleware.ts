@@ -1,26 +1,8 @@
 import { create } from 'zustand';
 import Cookies from 'js-cookie';
+import { AuthStateType } from '@/types/interfaces';
 
-interface AuthState {
-  isAuthenticated: boolean;
-  user: {
-    id: number;
-    firstName: string;
-    email: string;
-    profile?: string;
-  } | null;
-  initializeAuth: () => void;
-  login: (user: { id: number; firstName: string; email: string; profile?: string }) => void;
-  logout: () => void;
-  updateUser: (updatedUser: {
-    firstName?: string;
-    email?: string;
-    profile?: string;
-    lastName?: string;
-  }) => void;
-}
-
-const useAuthStore = create<AuthState>((set) => ({
+const useAuthStore = create<AuthStateType>((set) => ({
   isAuthenticated: false,
   user: null,
   initializeAuth: () => {

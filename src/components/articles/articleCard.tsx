@@ -1,18 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { press_start_2p } from '@/constants/fonts';
-import Link from 'next/link';
 import { calculateReadTime } from '@/lib/utils';
-
-interface ArticleType {
-  id: string;
-  title: string;
-  content: string;
-  image?: string;
-  createdAt: string;
-  readTime?: number;
-}
+import { ArticleType } from '@/types/interfaces';
 
 export default function ArticleCard({ article }: { article: ArticleType }) {
   const readTime = article.readTime || calculateReadTime(article.content);
@@ -59,6 +52,7 @@ export default function ArticleCard({ article }: { article: ArticleType }) {
             <Image
               src={article.image}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="rounded-sm object-cover"
               alt={article.title}
               priority

@@ -9,7 +9,10 @@ export function middleware(request: NextRequest) {
   // Get the pathname of the request
   const { pathname } = request.nextUrl;
 
-  const token = request.cookies.get('token')?.value;
+  const token = request.cookies.get('isAuthenticated')?.value;
+  // console.log(request.cookies);
+  // console.log(request.cookies);
+  // console.log(token);
   // const token = 'fff';
 
   const isProtectedRoute = protectedRoutes.some((route) => pathname.includes(route));

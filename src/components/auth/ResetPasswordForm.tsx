@@ -38,7 +38,7 @@ export default function ResetPasswordForm() {
         router.push('/sign-in');
       }, 2000);
     } catch (error) {
-      setErrorMessage('Something went wrong. try again.');
+      setErrorMessage(`Something went wrong. try again. ${(error as Error).message}`);
       setTimeout(() => {
         setErrorMessage(null);
       }, 2000);

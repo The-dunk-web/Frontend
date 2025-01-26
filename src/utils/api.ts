@@ -1,4 +1,4 @@
-import { ForgotPasswordData, LoginData, ResetPasswordData, SignupData } from '../types/interfaces';
+import { SignupData, ForgotPasswordData, LoginData, ResetPasswordData } from '@/types/interfaces';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 
@@ -65,7 +65,7 @@ export const forgotPassword = async (data: ForgotPasswordData) => {
   return response.json();
 };
 
-export const resetPassword = async (token: string, data: ResetPasswordData) => {
+export const resetPassword = async (token: string | string[], data: ResetPasswordData) => {
   const response = await fetch(`${API_URL}/api/auth/reset-password/${token}`, {
     method: 'POST',
     headers: {

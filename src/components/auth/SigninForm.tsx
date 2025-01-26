@@ -11,6 +11,7 @@ import { login } from '@/utils/api';
 import useAuthStore from '@/middleware/authMiddleware';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import DoorImg from '@/assets/door.jpg';
 
 export default function SigninForm() {
   const setAuth = useAuthStore((state) => state.login);
@@ -38,7 +39,7 @@ export default function SigninForm() {
         else router.push('/profile');
       }, 2000);
     } catch (error) {
-      setErrorMessage('Invalid Email or Password');
+      setErrorMessage(`Invalid Email or Password ${(error as Error).message}`);
       setTimeout(() => {
         setErrorMessage(null);
       }, 2000);
@@ -97,16 +98,16 @@ export default function SigninForm() {
 
       {showCustomMessage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
-          <div className="bg-stone-900 p-8 text-center">
+          <div className="max-w-[400px] bg-stone-900 text-center">
             <Image
-              src="/danger-smile.jpg"
+              src={DoorImg}
               alt="Danger Smile"
-              width={100}
-              height={100}
-              className="mx-auto w-auto"
+              width={500}
+              height={500}
+              className="w-full"
             />
-            <h2 className="mt-4 text-2xl font-bold text-red-600">hahahaha thanks idiot</h2>
-            <p className="mt-2 text-stone-100">Your data is public now!</p>
+            <h2 className="mt-4 px-8 text-2xl font-bold text-red-600">Welcome idiot</h2>
+            <p className="mt-2 px-8 pb-5 text-stone-100">We own you now!</p>
           </div>
         </div>
       )}

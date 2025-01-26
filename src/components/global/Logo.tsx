@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { press_start_2p } from '@/constants/fonts';
 export default function Logo() {
   return (
     <Link

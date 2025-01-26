@@ -1,34 +1,17 @@
 'use client';
-import { Button } from '../ui/button';
-import { ProductImageSlider } from '../products/ProductImagesSlider';
 import { useEffect, useState } from 'react';
 import { toast } from '@/hooks/use-toast';
 
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
-
-interface OrderType {
-  id: string;
-  quantity: number;
-  status: string;
-  totalPrice: number;
-  createdAt: string;
-  updatedAt: string;
-  userId: string;
-  productId: string;
-  product: ProductType;
-}
+import { useUser } from '@/hooks/useUser';
+import { Button } from '../ui/button';
+import { ProductImageSlider } from '../products/ProductImagesSlider';
+import { OrderType } from '@/types/interfaces';
 
 export default function OrderDetails({ orderId }: { orderId: string }) {
   const [orderDetails, setOrderDetails] = useState<OrderType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { userData } = useUser();
 
   async function fetchOrderDetails() {
     try {
@@ -66,7 +49,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          walletAddress: '124o9cn3298741ncnc92u3c',
+          walletAddress: userData?.visaCards[0]?.cardNumber,
         }),
         credentials: 'include',
       });

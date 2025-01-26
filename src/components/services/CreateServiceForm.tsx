@@ -6,10 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
 import { toast } from '@/hooks/use-toast';
-import { articleSchema, ArticleFormData } from '@/types/schema/article-schema';
 import useAuthStore from '@/middleware/authMiddleware';
 import { Label } from '../ui/label';
-import { Textarea } from '../ui/textarea';
 import { ServicesFormType, servicesSchema } from '@/types/schema/services-form-shema';
 
 interface ServiceType {
@@ -17,16 +15,16 @@ interface ServiceType {
   name?: string;
   description?: string;
   price?: number;
-  photos?: string;
+  photos?: string[];
 }
 interface ServiceFormProps {
   initialData?: ServiceType;
   onSuccess?: () => void;
 }
 
-export default function CreateServicesForm({ initialData, onSuccess }: ServiceFormProps) {
+export default function CreateServicesForm({ initialData }: ServiceFormProps) {
   const router = useRouter();
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File[] | null>(null);
   const [imgError, setImageError] = useState('');
   const { user } = useAuthStore();
   const isEditMode = !!initialData;
@@ -41,6 +39,7 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
       name: initialData?.name || '',
       description: initialData?.description || '',
       price: initialData?.price || 0,
+      photos: initialData?.photos || [],
     },
   });
 
@@ -57,7 +56,7 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
 
   const onSubmit = async (data: ServicesFormType) => {
     if (!user) return;
-    if (!file) {
+    if (!file && !isEditMode) {
       setImageError('Service Image is Required');
       return;
     }
@@ -68,7 +67,10 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
       formData.append('name', data.name);
       formData.append('description', data.description);
       formData.append('price', data.price + '');
-      formData.append('photos', file);
+      // formData.append('photos', file);
+      file?.forEach((file) => {
+        formData.append('photos', file);
+      });
 
       const url = isEditMode
         ? `${process.env.NEXT_PUBLIC_API_URL}/api/services/update/${initialData?.id}`
@@ -157,8 +159,17 @@ export default function CreateServicesForm({ initialData, onSuccess }: ServiceFo
           disabled={isSubmitting}
           className="mb-5"
           type="file"
-          onChange={(e) => setFile(e.target.files?.[0] || null)}
+          onChange={(e) => {
+            const files = e.target.files;
+            if (files) {
+              const fileArray = Array.from(files);
+              setFile(fileArray);
+            }
+            // setFile(e.target.files?.[0] || null);
+            // setFile(arr || null);
+          }}
           accept="image/*"
+          multiple
         />
         {imgError && <p className="text-red-500">{imgError}</p>}
       </div>

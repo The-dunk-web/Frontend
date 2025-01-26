@@ -1,28 +1,17 @@
 'use client';
 import React from 'react';
+import { FieldValues, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import useAuthStore from '@/middleware/authMiddleware';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
-import { FieldValues, useForm } from 'react-hook-form';
-import { UpdateUserData, UpdateUserSchema } from '@/types/schema/updata-user-data-schema';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from '@/hooks/use-toast';
-import useAuthStore from '@/middleware/authMiddleware';
+import { UpdateUserData, UpdateUserSchema } from '@/types/schema/updata-user-data-schema';
+import { UserType } from '@/types/interfaces';
 
-interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  profile: string | null;
-  phone: string;
-  email: string;
-  verified: boolean;
-  balance: number;
-  resetPasswordToken: string | null;
-  resetPasswordExpires: string | null;
-}
-
-export default function UpdateProfileForm({ userData }: { userData: User }) {
+export default function UpdateProfileForm({ userData }: { userData: UserType }) {
   const {
     register,
     handleSubmit,

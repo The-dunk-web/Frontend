@@ -1,4 +1,4 @@
-import { press_start_2p, vt323 } from '@/constants/fonts';
+import { press_start_2p } from '@/constants/fonts';
 import React from 'react';
 
 export default function AbouUs() {
@@ -18,8 +18,8 @@ export default function AbouUs() {
           <article className="space-y-2 border-2 border-stone-100 p-4 text-sm font-light leading-6 tracking-widest">
             <p>
               <span className="font-bold text-red-600">-</span> Welcome to The Dunk Web, your
-              gateway to the enigmatic depths of the unknown. This is not just a store—it’s a portal
-              into an alternate realm where boundaries dissolve, and the daring thrive.
+              gateway to the enigmatic depths of the unknown. This is not just a store—it&apos;s a
+              portal into an alternate realm where boundaries dissolve, and the daring thrive.
             </p>
             <p>
               <span className="font-bold text-red-600">-</span> Here, we offer exclusive red room
@@ -28,15 +28,15 @@ export default function AbouUs() {
               challenge the norms of reality.
             </p>
             <p>
-              <span className="font-bold text-red-600">-</span> Whether you're drawn to the allure
-              of our red rooms, seeking untold stories through provocative articles, or in need of
-              rare and unconventional products, we provide a haven for those who dare to explore the
-              forbidden.
+              <span className="font-bold text-red-600">-</span> Whether you&apos;re drawn to the
+              allure of our red rooms, seeking untold stories through provocative articles, or in
+              need of rare and unconventional products, we provide a haven for those who dare to
+              explore the forbidden.
             </p>
             <p>
-              <span className="font-bold text-red-600">-</span> At The Dunk Web, we don’t just sell
-              experiences—we invite you to live them. What we offer isn’t for everyone, but for the
-              chosen few ready to embrace the unknown.
+              <span className="font-bold text-red-600">-</span> At The Dunk Web, we don&apos;t just
+              sell experiences—we invite you to live them. What we offer isn&apos;t for everyone,
+              but for the chosen few ready to embrace the unknown.
             </p>
           </article>
 
@@ -75,7 +75,7 @@ export default function AbouUs() {
               </h3>
               <p className="text-sm font-light">
                 <span className="font-bold text-red-600">-</span> Discretion. Quality. Exclusivity.
-                With The Dunk Web, you're not just a customer—you’re part of a movement.
+                With The Dunk Web, you&apos;re not just a customer—you&apos;re part of a movement.
               </p>
             </div>
           </div>

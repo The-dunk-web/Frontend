@@ -1,13 +1,5 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { press_start_2p } from '@/constants/fonts';
-import Link from 'next/link';
 import ResetPasswordForm from '../auth/ResetPasswordForm';
 
 export default function ResetPasswordView() {
@@ -17,7 +9,9 @@ export default function ResetPasswordView() {
         <CardTitle className={`${press_start_2p.className} text-md tracking-wider text-red-600`}>
           Reset Password
         </CardTitle>
-        <CardDescription className="text-stone-100">I Bet You'll Recall It Soon</CardDescription>
+        <CardDescription className="text-stone-100">
+          I Bet You&apos;ll Recall It Soon
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <ResetPasswordForm />

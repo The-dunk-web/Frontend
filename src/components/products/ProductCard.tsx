@@ -1,20 +1,13 @@
 import React from 'react';
 
 import Image from 'next/image';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import image from '../../components/landing/assets/darkStore-1.jpg';
-import { press_start_2p } from '@/constants/fonts';
-import { Button } from '../ui/button';
 import Link from 'next/link';
 
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
+import image from '@/assets/darkStore-1.jpg';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { press_start_2p } from '@/constants/fonts';
+import { Button } from '../ui/button';
+import { ProductType } from '@/types/interfaces';
 
 export default function ProductCard({ product }: { product: ProductType }) {
   return (

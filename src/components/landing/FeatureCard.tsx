@@ -1,12 +1,5 @@
-import React, { JSX } from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import React from 'react';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '../ui/button';
 import { press_start_2p } from '@/constants/fonts';
 import Image, { StaticImageData } from 'next/image';

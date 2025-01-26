@@ -1,18 +1,11 @@
 'use client';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { toast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
+import { ProductType } from '@/types/interfaces';
 
 export default function PlaceOrder({ product }: { product: ProductType }) {
   const [quantity, setQuantity] = useState(1);
@@ -62,8 +55,6 @@ export default function PlaceOrder({ product }: { product: ProductType }) {
 
       setTimeout(() => router.push(`/orders/${data.order.id}`), 1000);
     } catch (err: unknown) {
-      console.log((err as Error).message);
-
       toast({
         className: 'bg-red-600 text-2xl tracking-wider',
         variant: 'destructive',

@@ -1,25 +1,8 @@
 import { useEffect, useState } from 'react';
-
-interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  profile: string | null;
-  phone: string;
-  email: string;
-  verified: boolean;
-  balance: number;
-  resetPasswordToken: string | null;
-  resetPasswordExpires: string | null;
-  visaCards: {
-    cardNumber: string;
-    cvv: string;
-    expiryDate: string;
-  }[];
-}
+import { UserType } from '@/types/interfaces';
 
 export function useUser() {
-  const [userData, setUserData] = useState<User | null>(null);
+  const [userData, setUserData] = useState<UserType | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
