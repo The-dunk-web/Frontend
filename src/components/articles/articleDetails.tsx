@@ -65,7 +65,7 @@ export default function ArticleDetails({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-8">
-      <h1 className={`${press_start_2p.className} mb-6 text-3xl text-red-600`}>{article.title}</h1>
+      <h1 className={`mb-6 text-3xl text-red-600`}>{article.title}</h1>
 
       <div className="mb-8 flex items-center gap-4 text-stone-400">
         <span>{new Date(article.createdAt).toLocaleDateString()}</span>
