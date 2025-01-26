@@ -1,19 +1,9 @@
 import React from 'react';
 import { ProductImageSlider } from './ProductImagesSlider';
-import { Input } from '../ui/input';
-import { Button } from '../ui/button';
-import Link from 'next/link';
+
 import { press_start_2p } from '@/constants/fonts';
 import PlaceOrder from './PlaceOrder';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
+import { ProductType } from '@/types/interfaces';
 
 export default function ProductInfo({ product }: { product: ProductType }) {
   return (

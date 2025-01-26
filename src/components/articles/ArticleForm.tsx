@@ -11,14 +11,14 @@ import useAuthStore from '@/middleware/authMiddleware';
 import { Label } from '../ui/label';
 import { Textarea } from '../ui/textarea';
 
-interface ArticleType {
+interface ArticleInitialType {
   id?: string;
   title?: string;
   content?: string;
   image?: string;
 }
 interface ArticleFormProps {
-  initialData?: ArticleType;
+  initialData?: ArticleInitialType;
   onSuccess?: () => void;
 }
 

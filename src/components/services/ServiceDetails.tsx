@@ -1,27 +1,13 @@
 'use client';
-import { press_start_2p } from '@/constants/fonts';
 import React from 'react';
-import { ProductImageSlider } from '../products/ProductImagesSlider';
 import Image from 'next/image';
+
+import { press_start_2p } from '@/constants/fonts';
+import { ProductImageSlider } from '../products/ProductImagesSlider';
 import Img from './assets/features-1.jpg';
-import { Button } from '../ui/button';
 import GetServiceBtn from './GetServiceBtn';
 import useAuthStore from '@/middleware/authMiddleware';
-
-interface ServicesType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  overallRating: number;
-  user: {
-    firstName: string;
-    lastName: string;
-    profile: string;
-  };
-  userId: string;
-}
+import { ServicesType } from '@/types/interfaces';
 
 export default function ServiceDetails({ service }: { service: ServicesType }) {
   console.log(service);

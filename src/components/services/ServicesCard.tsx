@@ -1,17 +1,10 @@
-import { press_start_2p } from '@/constants/fonts';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader } from '../ui/card';
 import Image from 'next/image';
-import Img from './assets/features-1.jpg';
 
-interface ServicesType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  overallRating: number;
-}
+import { press_start_2p } from '@/constants/fonts';
+import { Card, CardContent, CardHeader } from '../ui/card';
+import Img from './assets/features-1.jpg';
+import { ServicesType } from '@/types/interfaces';
 
 export default function ServicesCard({ service }: { service: ServicesType }) {
   return (

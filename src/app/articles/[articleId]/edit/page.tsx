@@ -1,23 +1,19 @@
 'use client';
-import { useParams, useRouter } from 'next/navigation';
-import ArticleForm from '@/components/articles/ArticleForm';
 import { useEffect, useState } from 'react';
-import useAuthStore from '@/middleware/authMiddleware';
-import { press_start_2p } from '@/constants/fonts';
-import { Button } from '@/components/ui/button';
+import { useParams, useRouter } from 'next/navigation';
 
-interface Article {
-  id: string;
-  title: string;
-  content: string;
-  authorId: string;
-}
+import ArticleForm from '@/components/articles/ArticleForm';
+import { Button } from '@/components/ui/button';
+import useAuthStore from '@/middleware/authMiddleware';
+
+import { press_start_2p } from '@/constants/fonts';
+import { ArticleType } from '@/types/interfaces';
 
 export default function SpecificArticlePage() {
   const router = useRouter();
   const params = useParams();
   const { user } = useAuthStore();
-  const [article, setArticle] = useState<Article | null>(null);
+  const [article, setArticle] = useState<ArticleType | null>(null);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {

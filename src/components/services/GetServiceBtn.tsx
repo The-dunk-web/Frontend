@@ -6,21 +6,7 @@ import useAuthStore from '@/middleware/authMiddleware';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-
-interface ServicesType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  overallRating: number;
-  user: {
-    firstName: string;
-    lastName: string;
-    profile: string;
-  };
-  userId: string;
-}
+import { ServicesType } from '@/types/interfaces';
 
 export default function GetServiceBtn({ service }: { service: ServicesType }) {
   const { user } = useAuthStore();

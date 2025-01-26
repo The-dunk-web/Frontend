@@ -1,30 +1,11 @@
 'use client';
-import { Button } from '../ui/button';
-import { ProductImageSlider } from '../products/ProductImagesSlider';
 import { useEffect, useState } from 'react';
 import { toast } from '@/hooks/use-toast';
+
 import { useUser } from '@/hooks/useUser';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
-
-interface OrderType {
-  id: string;
-  quantity: number;
-  status: string;
-  totalPrice: number;
-  createdAt: string;
-  updatedAt: string;
-  userId: string;
-  productId: string;
-  product: ProductType;
-}
+import { Button } from '../ui/button';
+import { ProductImageSlider } from '../products/ProductImagesSlider';
+import { OrderType } from '@/types/interfaces';
 
 export default function OrderDetails({ orderId }: { orderId: string }) {
   const [orderDetails, setOrderDetails] = useState<OrderType | null>(null);

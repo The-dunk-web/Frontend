@@ -1,14 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import ServicesCard from './ServicesCard';
-interface ServicesType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  overallRating: number;
-}
+import { ServicesType } from '@/types/interfaces';
 
 export default function AllServices() {
   const [services, setServices] = useState<ServicesType[] | []>([]);

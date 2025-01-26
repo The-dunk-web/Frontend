@@ -1,19 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import ArticleCard from './articleCard';
 
-interface ArticleType {
-  id: string;
-  title: string;
-  content: string;
-  image?: string;
-  createdAt: string;
-  author: {
-    firstName: string;
-    lastName: string;
-  };
-  likes: number;
-}
+import ArticleCard from './articleCard';
+import { ArticleType } from '@/types/interfaces';
 
 export default function AllArticles() {
   const [articles, setArticles] = useState<ArticleType[]>([]);

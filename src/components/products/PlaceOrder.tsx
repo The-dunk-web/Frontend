@@ -1,18 +1,11 @@
 'use client';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { toast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
+import { ProductType } from '@/types/interfaces';
 
 export default function PlaceOrder({ product }: { product: ProductType }) {
   const [quantity, setQuantity] = useState(1);

@@ -1,26 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 import { Button } from '../ui/button';
+import { UserType } from '@/types/interfaces';
 
-interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
-  profile: string | null;
-  phone: string;
-  email: string;
-  verified: boolean;
-  balance: number;
-  resetPasswordToken: string | null;
-  resetPasswordExpires: string | null;
-  visaCards: {
-    cardNumber: string;
-    cvv: string;
-    expiryDate: string;
-  }[];
-}
-
-export default function UserCredits({ userData }: { userData: User }) {
+export default function UserCredits({ userData }: { userData: UserType }) {
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">

@@ -1,28 +1,9 @@
 'use client';
-import { press_start_2p } from '@/constants/fonts';
 import React, { useEffect, useState } from 'react';
+
 import OrderCard from './OrderCard';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
-
-interface OrderType {
-  id: string;
-  quantity: number;
-  status: string;
-  totalPrice: number;
-  createdAt: string;
-  updatedAt: string;
-  userId: string;
-  productId: string;
-  product: ProductType;
-}
+import { press_start_2p } from '@/constants/fonts';
+import { OrderType } from '@/types/interfaces';
 
 export default function AllOrders() {
   const [orders, setOrders] = useState<OrderType[]>([]);

@@ -1,4 +1,4 @@
-import { ForgotPasswordData, LoginData, ResetPasswordData, SignupData } from '../types/interfaces';
+import { SignupData, ForgotPasswordData, LoginData, ResetPasswordData } from '@/types/interfaces';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 

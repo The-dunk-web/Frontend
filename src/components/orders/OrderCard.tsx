@@ -1,28 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+
 import Img from './assets/features-1.jpg';
-
-interface ProductType {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  photos: string[];
-}
-
-interface OrderType {
-  id: string;
-  quantity: number;
-  status: string;
-  totalPrice: number;
-  createdAt: string;
-  updatedAt: string;
-  userId: string;
-  productId: string;
-  product: ProductType;
-}
+import { OrderType } from '@/types/interfaces';
 
 export default function OrderCard({ order }: { order: OrderType }) {
   const statusColor =
