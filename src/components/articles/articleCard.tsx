@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { press_start_2p } from '@/constants/fonts';
 import { calculateReadTime } from '@/lib/utils';
 import { ArticleType } from '@/types/interfaces';
 
