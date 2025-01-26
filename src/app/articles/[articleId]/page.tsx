@@ -27,7 +27,12 @@ export default function Page() {
     fetchArticle();
   }, [articleId]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className="flex min-h-[200px] items-center justify-center">
+        <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-red-500"></div>
+      </div>
+    );
   if (!article) return <div>Article not found</div>;
 
   return <ArticleDetails article={article} />;
