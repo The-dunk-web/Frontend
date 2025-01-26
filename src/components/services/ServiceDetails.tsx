@@ -19,8 +19,9 @@ export default function ServiceDetails({ service }: { service: ServicesType }) {
           <div className="h-[50px] w-[50px] overflow-hidden rounded-full">
             <Image
               src={service.user.profile || Img}
-              width={100}
-              height={100}
+              width={900}
+              height={900}
+              className="h-full object-cover"
               alt={`${service.user.firstName}imgae`}
             />
           </div>
