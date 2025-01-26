@@ -1,6 +1,5 @@
 import React from 'react';
 import Logo from '../global/Logo';
-import Link from 'next/link';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import ActiveLink from '../global/ActiveLink';

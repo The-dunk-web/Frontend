@@ -39,7 +39,7 @@ export default function SigninForm() {
         else router.push('/profile');
       }, 2000);
     } catch (error) {
-      setErrorMessage('Invalid Email or Password');
+      setErrorMessage(`Invalid Email or Password ${(error as Error).message}`);
       setTimeout(() => {
         setErrorMessage(null);
       }, 2000);

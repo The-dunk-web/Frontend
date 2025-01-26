@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { useForm } from 'react-hook-form';
 import { toast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
 import useAuthStore from '@/middleware/authMiddleware';
 
 export default function ImageUpload() {

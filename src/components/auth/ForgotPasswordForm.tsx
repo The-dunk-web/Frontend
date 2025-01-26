@@ -32,7 +32,9 @@ export default function ForgotPasswordForm() {
       setShowMockMessage(true);
       reset();
     } catch (error) {
-      setErrorMessage('this email is not registered you are really an idiot 😕');
+      setErrorMessage(
+        `this email is not registered you are really an idiot 😕 ${(error as Error).message}`
+      );
       setTimeout(() => {
         setErrorMessage(null);
       }, 4000);

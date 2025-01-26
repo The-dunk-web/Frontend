@@ -6,10 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
 import { toast } from '@/hooks/use-toast';
-import { articleSchema, ArticleFormData } from '@/types/schema/article-schema';
 import useAuthStore from '@/middleware/authMiddleware';
 import { Label } from '../ui/label';
-import { Textarea } from '../ui/textarea';
 import { ServicesFormType, servicesSchema } from '@/types/schema/services-form-shema';
 
 interface ServiceType {
@@ -24,7 +22,7 @@ interface ServiceFormProps {
   onSuccess?: () => void;
 }
 
-export default function CreateServicesForm({ initialData, onSuccess }: ServiceFormProps) {
+export default function CreateServicesForm({ initialData }: ServiceFormProps) {
   const router = useRouter();
   const [file, setFile] = useState<File[] | null>(null);
   const [imgError, setImageError] = useState('');

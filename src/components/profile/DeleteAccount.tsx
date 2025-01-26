@@ -48,8 +48,8 @@ export default function DeleteAccount() {
           <DialogDescription
             className={`${press_start_2p.className} animate-pulse text-center text-2xl font-bold text-red-600`}
           >
-            Account deletion? Nice try! You’re stuck here forever—like a catchy song in your head.
-            🎵🤪 Hahaha!
+            Account deletion? Nice try! You&apos;re stuck here forever—like a catchy song in your
+            head. 🎵🤪 Hahaha!
           </DialogDescription>
         ) : (
           <video
