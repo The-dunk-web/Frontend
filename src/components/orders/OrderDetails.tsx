@@ -95,7 +95,13 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
   }
 
   if (isLoading && !orderDetails) {
-    return <div className="text-center">Loading order...</div>;
+    return (
+      <div className="text-center">
+        <div className="flex min-h-[200px] items-center justify-center">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-red-500"></div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
@@ -103,7 +109,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
   }
 
   if (!orderDetails) {
-    return <div className="text-center">No order found.</div>;
+    return <div className="text-center text-red-500">No order found.</div>;
   }
 
   const statusColor =

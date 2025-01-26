@@ -52,7 +52,14 @@ export default function SpecificArticlePage() {
     router.push(`/articles/${params.articleId}`);
   };
 
-  if (!article) return <div>Loading...</div>;
+  if (!article)
+    return (
+      <div>
+        <div className="flex min-h-[200px] items-center justify-center">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-red-500"></div>
+        </div>
+      </div>
+    );
 
   return (
     <div className="container mx-auto py-16 text-center">

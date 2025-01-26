@@ -24,7 +24,7 @@ export default function ProfileView() {
   }
 
   if (!userData) {
-    return <div className="text-center">No user data found.</div>;
+    return <div className="text-center text-red-500">No user data found.</div>;
   }
 
   return (

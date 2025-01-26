@@ -38,7 +38,11 @@ export default function AllProducts() {
   }, []);
 
   if (isLoading) {
-    return <div className="text-center">Loading Products...</div>;
+    return (
+      <div className="flex min-h-[200px] items-center justify-center">
+        <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-red-500"></div>
+      </div>
+    );
   }
 
   if (error) {
@@ -46,7 +50,7 @@ export default function AllProducts() {
   }
 
   if (products.length === 0) {
-    return <div className="text-center">No Products found.</div>;
+    return <div className="text-center text-red-500">No Products found.</div>;
   }
 
   return (
