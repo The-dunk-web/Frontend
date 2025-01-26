@@ -3,6 +3,7 @@ import { Button } from '../ui/button';
 import { ProductImageSlider } from '../products/ProductImagesSlider';
 import { useEffect, useState } from 'react';
 import { toast } from '@/hooks/use-toast';
+import { useUser } from '@/hooks/useUser';
 
 interface ProductType {
   id: string;
@@ -29,6 +30,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
   const [orderDetails, setOrderDetails] = useState<OrderType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { userData } = useUser();
 
   async function fetchOrderDetails() {
     try {
@@ -66,7 +68,7 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          walletAddress: '124o9cn3298741ncnc92u3c',
+          walletAddress: userData?.visaCards[0]?.cardNumber,
         }),
         credentials: 'include',
       });
