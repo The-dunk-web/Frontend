@@ -115,7 +115,7 @@ How to Run the code
 
 ## For the user
 
-Or you just can vist the website [here](https://github.com/The-dunk-web)
+Or you just can vist the website [here](https://the-dunk-web.vercel.app/)
 
 ## Website Preview
 
